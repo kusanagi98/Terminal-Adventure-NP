@@ -67,6 +67,7 @@ typedef struct LevelInformation {
     int atk;
     int def;
     int maxexp;
+    int count;
     SkillInfo skills[20];
 } LevelInfo;
 typedef struct MonsterInformation {

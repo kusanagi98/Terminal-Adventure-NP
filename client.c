@@ -44,16 +44,28 @@ LevelInfo levels[MAX_LEVEL];
 MonsterInfo monsters[2];
 StageInfo stages[2];
 FILE *f;
-int i, j, skill_num, count, type_num;
+int i, j, skill_num, type_num, k;
+int x;
 int userCurHP, userCurMP, userCurLevel, userCurExp, userCurStage, monsterCurHP, monsterCurMP, curDmg;
 SkillInfo monsterSkill;
-char ch, ch1;          //options
+char ch, ch1, ch2;     //options
 char temp;             //temp for consuming \n
 UserInfo tmp;          //temp for storing info from input file
 UserNode *root = NULL; //linked list root
 int damageCalculationPlayer(SkillInfo skill, LevelInfo player, MonsterInfo monster)
 {
-    return player.atk * skill.dmg / monster.def;
+    if ((skill.type == T_FIRE && monster.type == T_GRASS) || (skill.type == T_WATER && monster.type == T_FIRE) || (skill.type == T_GRASS && monster.type == T_WATER))
+    {
+        return player.atk * skill.dmg / monster.def * 2;
+    }
+    else if ((skill.type == T_FIRE && monster.type == T_WATER) || (skill.type == T_FIRE && monster.type == T_GRASS) || (skill.type == T_WATER && monster.type == T_WATER) || (skill.type == T_WATER && monster.type == T_GRASS) || (skill.type == T_GRASS && monster.type == T_GRASS) || (skill.type == T_GRASS && monster.type == T_FIRE))
+    {
+        return player.atk * skill.dmg / monster.def / 2;
+    }
+    else
+    {
+        return player.atk * skill.dmg / monster.def;
+    }
 }
 int damageCalculationMonster(SkillInfo skill, LevelInfo player, MonsterInfo monster)
 {
@@ -151,8 +163,8 @@ int main()
         ch = fgetc(f);
         fscanf(f, "%d", &levels[i].maxexp);
         ch = fgetc(f);
-        fscanf(f, "%d", &count);
-        for (j = 0; j < count; j++)
+        fscanf(f, "%d", &levels[i].count);
+        for (j = 0; j < levels[i].count; j++)
         {
             ch = fgetc(f);
             fscanf(f, "%d", &skill_num);
@@ -219,6 +231,7 @@ int main()
         {
             printf("%s\n", root->user.username);
             printf("Game start\n");
+            printf("--------------------------------\n");
             userCurLevel = root->user.level;
             userCurHP = root->user.curHP;
             userCurMP = root->user.curMP;
@@ -227,9 +240,11 @@ int main()
             for (i = userCurStage; i < 2; i++)
             {
                 printf("Stage %d\n", i);
+                printf("--------------------------------\n");
                 for (j = 0; j < stages[i].number; j++)
                 {
                     printf("A wild %s appears\n", stages[i].monsters[j].name);
+                    printf("--------------------------------\n");
                     monsterCurHP = stages[i].monsters[j].hp;
                     monsterCurMP = stages[i].monsters[j].mp;
                     while (1)
@@ -237,38 +252,98 @@ int main()
                         printf("%s\t%s\n", root->user.username, stages[i].monsters[j].name);
                         printf("HP:%d\tHP:%d\n", userCurHP, monsterCurHP);
                         printf("MP:%d\tMP:%d\n", userCurMP, monsterCurMP);
+                        printf("--------------------------------\n");
                         do
                         {
                             printf("1. Normal Attack\n");
                             printf("2. Skills\n");
                             printf("Your choice:\n");
                             ch1 = getchar();
-                            //scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
+                            scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
                             if (ch1 == '1')
                             {
-                                curDmg = damageCalculationPlayer(skills[SKILL_COUNT - 1], levels[root->user.level - 1], stages[i].monsters[j]);
+                                curDmg = damageCalculationPlayer(skills[SKILL_COUNT - 1], levels[userCurLevel - 1], stages[i].monsters[j]);
                                 monsterCurHP -= curDmg;
                                 printf("%s uses Normal Attack\n", root->user.username);
                                 printf("%s deals %d\n", root->user.username, curDmg);
                             }
                             else if (ch1 == '2')
                             {
+                                for (k = 0; k < levels[userCurLevel - 1].count; k++)
+                                {
+                                    printf("%d. %s\n", k + 1, levels[userCurLevel - 1].skills[k].name);
+                                }
+                                printf("Your choice:\n");
+                                ch2 = getchar();
+                                scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
+                                x = ch2 - '0';
+                                if (x < 1 || x > levels[userCurLevel - 1].count)
+                                {
+                                    ch1 = '3';
+                                    //continue;
+                                }
+                                else
+                                {
+                                    if (userCurMP >= levels[userCurLevel - 1].skills[x - 1].mpcost)
+                                    {
+                                        if (levels[userCurLevel - 1].skills[x - 1].type == T_HEAL)
+                                        {
+                                            curDmg = levels[userCurLevel - 1].skills[x - 1].dmg * levels[userCurLevel - 1].def;
+                                            userCurHP += curDmg;
+                                            if (userCurHP > levels[userCurLevel - 1].hp)
+                                            {
+                                                curDmg -= userCurHP - levels[userCurLevel - 1].hp;
+                                                userCurHP = levels[userCurLevel - 1].hp;
+                                            }
+                                            printf("%s uses %s\n", root->user.username, levels[userCurLevel - 1].skills[x - 1].name);
+                                            printf("%s heals for %d hp\n", root->user.username, curDmg);
+                                        }
+                                        else
+                                        {
+                                            curDmg = damageCalculationPlayer(levels[userCurLevel - 1].skills[x - 1], levels[userCurLevel - 1], stages[i].monsters[j]);
+                                            monsterCurHP -= curDmg;
+                                            userCurMP -= levels[userCurLevel - 1].skills[x - 1].mpcost;
+                                            printf("%s uses %s\n", root->user.username, levels[userCurLevel - 1].skills[x - 1].name);
+                                            printf("%s deals %d damage\n", root->user.username, curDmg);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        printf("Not enough MP\n");
+                                        ch1 = '3';
+                                    }
+                                }
                             }
                             else
                             {
                                 //continue;
                             }
-                        } while (ch1 != '1');
+                        } while (ch1 != '1' && ch1 != '2');
                         if (monsterCurHP > 0)
                         {
                             monsterSkill = monsterAI(stages[i].monsters[j], monsterCurHP);
-                            curDmg = damageCalculationMonster(monsterSkill, levels[root->user.level - 1], stages[i].monsters[j]);
-                            userCurHP -= curDmg;
-                            printf("%s uses %s\n", stages[i].monsters[j].name, monsterSkill.name);
-                            printf("%s deals %d\n", stages[i].monsters[j].name, curDmg);
-                            if (userCurHP <= 0)
+                            if (monsterSkill.type == T_HEAL)
                             {
-                                exit(1);
+                                curDmg = monsterSkill.dmg * stages[i].monsters[j].def;
+                                monsterCurHP += curDmg;
+                                if (monsterCurHP > stages[i].monsters[j].hp)
+                                {
+                                    curDmg -= monsterCurHP - stages[i].monsters[j].hp;
+                                    monsterCurHP = stages[i].monsters[j].hp;
+                                }
+                                printf("%s uses %s\n", stages[i].monsters[j].name, monsterSkill.name);
+                                printf("%s heals for %d hp\n", stages[i].monsters[j].name, curDmg);
+                            }
+                            else
+                            {
+                                curDmg = damageCalculationMonster(monsterSkill, levels[userCurLevel - 1], stages[i].monsters[j]);
+                                userCurHP -= curDmg;
+                                printf("%s uses %s\n", stages[i].monsters[j].name, monsterSkill.name);
+                                printf("%s deals %d damage\n", stages[i].monsters[j].name, curDmg);
+                                if (userCurHP <= 0)
+                                {
+                                    exit(1);
+                                }
                             }
                         }
                         else
@@ -276,23 +351,29 @@ int main()
                             break;
                         }
                     }
+                    printf("--------------------------------\n");
                     printf("%s defeated %s\n", root->user.username, stages[i].monsters[j].name);
                     if (userCurLevel < MAX_LEVEL)
                     {
                         printf("%s gained %d EXP\n", root->user.username, stages[i].monsters[j].exp);
                         userCurExp += stages[i].monsters[j].exp;
-                        if (userCurExp >= levels[root->user.level - 1].maxexp)
+                        if (userCurExp >= levels[userCurLevel - 1].maxexp)
                         {
                             userCurLevel += 1;
-                            userCurHP = levels[root->user.level - 1].hp;
-                            userCurMP = levels[root->user.level - 1].mp;
+                            userCurHP = levels[userCurLevel - 1].hp;
+                            userCurMP = levels[userCurLevel - 1].mp;
                             userCurExp = 0;
+                            printf("%s grew to Level %d \n", root->user.username, userCurLevel);
+                            printf("--------------------------------\n");
                         }
                     }
                 }
+                printf("--------------------------------\n");
                 printf("%s beat stage %d\n", root->user.username, i);
+                printf("--------------------------------\n");
                 userCurStage += 1;
             }
+            printf("Congrats you beat the game\n");
             //signinUser(root, argv[1]);
             //scanf("%c",&temp);
         }
