@@ -243,7 +243,7 @@ int main()
                             printf("2. Skills\n");
                             printf("Your choice:\n");
                             ch1 = getchar();
-                            scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
+                            //scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
                             if (ch1 == '1')
                             {
                                 curDmg = damageCalculationPlayer(skills[SKILL_COUNT - 1], levels[root->user.level - 1], stages[i].monsters[j]);
@@ -258,7 +258,7 @@ int main()
                             {
                                 //continue;
                             }
-                        } while (ch1 != '1' || ch1 != '2');
+                        } while (ch1 != '1');
                         if (monsterCurHP > 0)
                         {
                             monsterSkill = monsterAI(stages[i].monsters[j], monsterCurHP);
@@ -275,13 +275,23 @@ int main()
                         {
                             break;
                         }
-                        
                     }
                     printf("%s defeated %s\n", root->user.username, stages[i].monsters[j].name);
-                    printf("%s gained %d EXP\n", root->user.username, stages[i].monsters[j].exp);
-                    userCurExp += stages[i].monsters[j].exp;
+                    if (userCurLevel < MAX_LEVEL)
+                    {
+                        printf("%s gained %d EXP\n", root->user.username, stages[i].monsters[j].exp);
+                        userCurExp += stages[i].monsters[j].exp;
+                        if (userCurExp >= levels[root->user.level - 1].maxexp)
+                        {
+                            userCurLevel += 1;
+                            userCurHP = levels[root->user.level - 1].hp;
+                            userCurMP = levels[root->user.level - 1].mp;
+                            userCurExp = 0;
+                        }
+                    }
                 }
                 printf("%s beat stage %d\n", root->user.username, i);
+                userCurStage += 1;
             }
             //signinUser(root, argv[1]);
             //scanf("%c",&temp);
