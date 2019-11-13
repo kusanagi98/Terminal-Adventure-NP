@@ -9,7 +9,7 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include "client.h"
-
+// TODO: Separate files and add makefile
 SkillInfo skills[SKILL_COUNT] = {
     {S_EMBER, "Ember", 20, 5, T_FIRE},
     {S_VINEWHIP, "Vine Whip", 20, 5, T_GRASS},
@@ -120,6 +120,7 @@ void freeList(UserNode *root)
 }
 int main()
 {
+    // TODO: Move user linked list to server
     f = fopen("userinfo.txt", "r");
     if (f == NULL)
     {
@@ -221,6 +222,7 @@ int main()
         printf("\nTERMINAL ADVENTURE DEMO");
         printf("\n--------------------------------");
         printf("\n1. Play");
+        // TODO: Create profile and login
         // printf("\n2. Sign in");
         // printf("\n3. Search");
         // printf("\n4. Sign out");
@@ -232,15 +234,18 @@ int main()
             printf("%s\n", root->user.username);
             printf("Game start\n");
             printf("--------------------------------\n");
+            // Hold user info to local variables
             userCurLevel = root->user.level;
             userCurHP = root->user.curHP;
             userCurMP = root->user.curMP;
             userCurExp = root->user.curExp;
             userCurStage = root->user.stage;
+            // Go through all the stages from the saved one
             for (i = userCurStage; i < 2; i++)
             {
                 printf("Stage %d\n", i);
                 printf("--------------------------------\n");
+                // Go through all the monsters
                 for (j = 0; j < stages[i].number; j++)
                 {
                     printf("A wild %s appears\n", stages[i].monsters[j].name);
@@ -253,6 +258,7 @@ int main()
                         printf("HP:%d\tHP:%d\n", userCurHP, monsterCurHP);
                         printf("MP:%d\tMP:%d\n", userCurMP, monsterCurMP);
                         printf("--------------------------------\n");
+                        // User command
                         do
                         {
                             printf("1. Normal Attack\n");
@@ -262,6 +268,7 @@ int main()
                             scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
                             if (ch1 == '1')
                             {
+                                // Normal Attack
                                 curDmg = damageCalculationPlayer(skills[SKILL_COUNT - 1], levels[userCurLevel - 1], stages[i].monsters[j]);
                                 monsterCurHP -= curDmg;
                                 printf("%s uses Normal Attack\n", root->user.username);
@@ -269,6 +276,7 @@ int main()
                             }
                             else if (ch1 == '2')
                             {
+                                // Skills
                                 for (k = 0; k < levels[userCurLevel - 1].count; k++)
                                 {
                                     printf("%d. %s\n", k + 1, levels[userCurLevel - 1].skills[k].name);
@@ -279,6 +287,7 @@ int main()
                                 x = ch2 - '0';
                                 if (x < 1 || x > levels[userCurLevel - 1].count)
                                 {
+                                    // Repeat the loop
                                     ch1 = '3';
                                     //continue;
                                 }
@@ -286,6 +295,7 @@ int main()
                                 {
                                     if (userCurMP >= levels[userCurLevel - 1].skills[x - 1].mpcost)
                                     {
+                                        // Healing
                                         if (levels[userCurLevel - 1].skills[x - 1].type == T_HEAL)
                                         {
                                             curDmg = levels[userCurLevel - 1].skills[x - 1].dmg * levels[userCurLevel - 1].def;
@@ -319,9 +329,11 @@ int main()
                                 //continue;
                             }
                         } while (ch1 != '1' && ch1 != '2');
+                        // Monster turn
                         if (monsterCurHP > 0)
                         {
                             monsterSkill = monsterAI(stages[i].monsters[j], monsterCurHP);
+                            // Healing
                             if (monsterSkill.type == T_HEAL)
                             {
                                 curDmg = monsterSkill.dmg * stages[i].monsters[j].def;
@@ -342,6 +354,7 @@ int main()
                                 printf("%s deals %d damage\n", stages[i].monsters[j].name, curDmg);
                                 if (userCurHP <= 0)
                                 {
+                                    // TODO: Allow player to reload the savefile or reload from the start of the stage
                                     exit(1);
                                 }
                             }
@@ -364,10 +377,11 @@ int main()
                             userCurMP = levels[userCurLevel - 1].mp;
                             userCurExp = 0;
                             printf("%s grew to Level %d \n", root->user.username, userCurLevel);
-                            printf("--------------------------------\n");
                         }
                     }
+                    printf("--------------------------------\n");
                 }
+                // TODO: Add menu for save, continue or stop playing
                 printf("--------------------------------\n");
                 printf("%s beat stage %d\n", root->user.username, i);
                 printf("--------------------------------\n");

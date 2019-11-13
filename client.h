@@ -84,6 +84,10 @@ typedef struct StageInformation {
     int number;
     MonsterInfo monsters[10];
 } StageInfo;
+//GAME MECHANICS FUNCTIONS
+int damageCalculationPlayer(SkillInfo skill, LevelInfo player, MonsterInfo monster);
+int damageCalculationMonster(SkillInfo skill, LevelInfo player, MonsterInfo monster);
+SkillInfo monsterAI(MonsterInfo monster, int curHP);
 //UTILITY FUNCTIONS
 UserNode *makeNewNode(UserInfo data);                          //Create a new node for the account linked list
 
