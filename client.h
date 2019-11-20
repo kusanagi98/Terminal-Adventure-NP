@@ -1,46 +1,20 @@
+#ifndef __CLIENT_H__
+#define __CLIENT_H__
+#include "monster.h"
+#include "skill.h"
+#include "level.h"
 #define BUF_SIZE 100
-#define SKILL_COUNT 29
-#define STRING_LEN 20
-#define MAX_LEVEL 5
-typedef enum {
-    T_FIRE,
-    T_GRASS,
-    T_WATER,
-    T_NORMAL,
-    T_HEAL
-} Type;
-typedef enum {
-    S_EMBER,
-    S_VINEWHIP,
-    S_WATERGUN,
-    S_HEADBUTT,
-    S_SLASH,
-    S_FLAMEWHEEL,
-    S_MAGICALLEAF,
-    S_WATERPULSE,
-    S_FLAMETHROWER,
-    S_LEAFBLADE,
-    S_SURF,  
-    S_MEGAPUNCH,
-    S_FIREBLAST,
-    S_SOLARBEAM,
-    S_HYDROPUMP,
-    S_MEGAKICK,
-    S_BLASTBURN,
-    S_FRENZYPLANT,
-    S_HYDROCANNON,
-    S_HYPERBEAM,
-    ES_TACKLE,
-    ES_ACID,
-    ES_SLUDGEBOMB,
-    ES_GUNKSHOT,
-    ES_SCRATCH,
-    ES_THRUST,
-    ES_POTION,
-    ES_GOBLINPUNCH,
-    S_NORMALATTACK
-} Skill;
-typedef struct UserInformation {
+#define RED   "\x1B[31m"
+#define GRN   "\x1B[32m"
+#define YEL   "\x1B[33m"
+#define BLU   "\x1B[34m"
+#define MAG   "\x1B[35m"
+#define CYN   "\x1B[36m"
+#define WHT   "\x1B[37m"
+#define RESET "\x1B[0m"
+
+typedef struct UserInformation
+{
     char username[STRING_LEN];
     char password[STRING_LEN];
     int level;
@@ -49,48 +23,27 @@ typedef struct UserInformation {
     int curMP;
     int stage;
 } UserInfo;
-typedef struct UserInfoNode {
-  UserInfo user;
-  struct UserInfoNode *next;
+typedef struct UserInfoNode
+{
+    UserInfo user;
+    struct UserInfoNode *next;
 } UserNode;
-typedef struct SkillInformation {
-    Skill skilltype;
-    char name[STRING_LEN];
-    int dmg;
-    int mpcost;
-    Type type;
-} SkillInfo;
-typedef struct LevelInformation {
-    int level;
-    int hp;
-    int mp;
-    int atk;
-    int def;
-    int maxexp;
-    int count;
-    SkillInfo skills[20];
-} LevelInfo;
-typedef struct MonsterInformation {
-    char name[STRING_LEN];
-    int hp;
-    int mp;
-    int atk;
-    int def;
-    int exp;
-    Type type;
-    SkillInfo skills[4];
-} MonsterInfo;
-typedef struct StageInformation {
-    int number;
-    MonsterInfo monsters[10];
-} StageInfo;
+
+
 //GAME MECHANICS FUNCTIONS
 int damageCalculationPlayer(SkillInfo skill, LevelInfo player, MonsterInfo monster);
 int damageCalculationMonster(SkillInfo skill, LevelInfo player, MonsterInfo monster);
 SkillInfo monsterAI(MonsterInfo monster, int curHP);
 //UTILITY FUNCTIONS
-UserNode *makeNewNode(UserInfo data);                          //Create a new node for the account linked list
+UserNode *loadUserInfo();
 
-UserNode *insertNode(UserNode *root, UserNode *new);            //Append the new node to the account linked list
+
+
+UserNode *makeNewNode(UserInfo data); //Create a new node for the account linked list
+
+UserNode *insertNode(UserNode *root, UserNode *new); //Append the new node to the account linked list
 
 void freeList(UserNode *root);
+
+#endif
+
