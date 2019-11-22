@@ -35,11 +35,15 @@ int damageCalculationPlayer(SkillInfo skill, LevelInfo player, MonsterInfo monst
 int damageCalculationMonster(SkillInfo skill, LevelInfo player, MonsterInfo monster);
 SkillInfo monsterAI(MonsterInfo monster, int curHP);
 void campaign();
+char gameoverChoice();
+char stageoverChoice();
 //UTILITY FUNCTIONS
 void printUserLog(char user[], char skill[], int dmg, Type type);
 void printMonsterLog(char monster[], char skill[], int dmg, Type type);
 // Move these to server
 UserNode *loadUserInfo();
+
+void storeUserInfo(UserNode *head);
 
 UserNode *makeNewNode(UserInfo data); //Create a new node for the account linked list
 

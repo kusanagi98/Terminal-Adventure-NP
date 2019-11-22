@@ -18,12 +18,13 @@ extern LevelInfo levels[];
 extern MonsterInfo monsters[];
 extern StageInfo stages[];
 int userCurHP, userCurMP, userCurLevel, userCurExp, userCurStage, monsterCurHP, monsterCurMP, curDmg;
+int userStageHP, userStageMP; //Hold user's hp and mp at the start of the stage for reload
 SkillInfo monsterSkill;
 extern UserNode *root;
 void campaign()
 {
     int i, j, k, x;
-    char ch1, ch2, temp;
+    char ch1, ch2, ch3, ch4, temp;
     char nattack[] = "Normal Attack";
     printf("%s\n", root->user.username);
     printf("Game start\n");
@@ -35,8 +36,12 @@ void campaign()
     userCurExp = root->user.curExp;
     userCurStage = root->user.stage;
     // Go through all the stages from the saved one
-    for (i = userCurStage; i < 2; i++)
+    for (i = userCurStage; i < MAX_STAGE; i++)
     {
+        ch3 = '0';
+        ch4 = '0';
+        userStageHP = userCurHP;
+        userStageMP = userCurMP;
         printf("Stage %d\n", i);
         printf("--------------------------------\n");
         // Go through all the monsters
@@ -145,8 +150,12 @@ void campaign()
                         printMonsterLog(stages[i].monsters[j].name, monsterSkill.name, curDmg, monsterSkill.type);
                         if (userCurHP <= 0)
                         {
-                            // TODO: Allow player to reload the savefile or reload from the start of the stage
-                            exit(1);
+                            //Reload from the start of the stage or stop
+                            printf("--------------------------------\n");
+                            printf(YEL "%s" RESET " lost\n", root->user.username);
+                            printf("--------------------------------\n");
+                            ch3 = gameoverChoice();
+                            break;
                         }
                     }
                 }
@@ -155,6 +164,12 @@ void campaign()
                     break;
                 }
             }
+            // Loss
+            if (ch3 == '1' || ch3 == '2')
+            {
+                break;
+            }
+            // Win
             printf("--------------------------------\n");
             printf(YEL "%s" RESET " defeated %s\n", root->user.username, stages[i].monsters[j].name);
             if (userCurLevel < MAX_LEVEL)
@@ -172,15 +187,44 @@ void campaign()
             }
             printf("--------------------------------\n");
         }
-        // TODO: Add menu for save, continue or stop playing
-        printf("--------------------------------\n");
-        printf(YEL "%s" RESET " beat stage %d\n", root->user.username, i);
-        printf("--------------------------------\n");
-        userCurStage += 1;
+        if (ch3 == '1')
+        {
+            i--;
+            userCurHP = userStageHP;
+            userCurMP = userStageMP;
+        }
+        // Stop playing
+        else if (ch3 == '2')
+        {
+            break;
+        }
+        else
+        {
+            printf("--------------------------------\n");
+            printf(YEL "%s" RESET " beat stage %d\n", root->user.username, i);
+            printf("--------------------------------\n");
+            userCurStage += 1;
+            //Save (move to server)
+            root->user.level = userCurLevel;
+            root->user.curExp = userCurExp;
+            root->user.curHP = userCurHP;
+            root->user.curMP = userCurMP;
+            root->user.stage = userCurStage;
+            storeUserInfo(root);
+            ////Menu for continue or stop playing
+            ch4 = stageoverChoice();
+            if (ch4 == '2')
+            {
+                break;
+            }
+        }
+    }
+    // Stop playing
+    if (ch3 == '2' || ch4 == '2')
+    {
+        return;
     }
     printf("Congrats you beat the game\n");
-    //signinUser(root, argv[1]);
-    //scanf("%c",&temp);
 }
 int damageCalculationPlayer(SkillInfo skill, LevelInfo player, MonsterInfo monster)
 {
@@ -220,6 +264,40 @@ SkillInfo monsterAI(MonsterInfo monster, int curHP)
     {
         return monster.skills[3];
     }
+}
+char gameoverChoice()
+{
+    char ch, temp;
+    do
+    {
+        printf("1. Reload from the beginning of the stage\n");
+        printf("2. Stop\n");
+        printf("Your choice:\n");
+        ch = getchar();
+        scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
+        if (ch == '1' || ch == '2')
+        {
+            return ch;
+        }
+    } while (ch != '1' && ch != '2');
+    return '0';
+}
+char stageoverChoice()
+{
+    char ch, temp;
+    do
+    {
+        printf("1. Continue\n");
+        printf("2. Stop\n");
+        printf("Your choice:\n");
+        ch = getchar();
+        scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
+        if (ch == '1' || ch == '2')
+        {
+            return ch;
+        }
+    } while (ch != '1' && ch != '2');
+    return '0';
 }
 // UTILITY FUNCTIONS
 void printUserLog(char user[], char skill[], int dmg, Type type)
@@ -291,6 +369,21 @@ UserNode *loadUserInfo()
     }
     fclose(f);
     return list;
+}
+void storeUserInfo(UserNode *head)
+{
+    UserNode *cur = NULL;
+    FILE *f;
+    if (head == NULL)
+        return;
+    cur = head;
+    f = fopen("userinfo.txt", "w");
+    while (cur != NULL)
+    {
+        fprintf(f, "%s %s %d %d %d %d %d\n", cur->user.username, cur->user.password, cur->user.level, cur->user.curExp, cur->user.curHP, cur->user.curMP, cur->user.stage);
+        cur = cur->next;
+    }
+    fclose(f);
 }
 UserNode *makeNewNode(UserInfo data)
 {
