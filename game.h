@@ -1,5 +1,5 @@
-#ifndef __CLIENT_H__
-#define __CLIENT_H__
+#ifndef __GAME_H__
+#define __GAME_H__
 #include "monster.h"
 #include "skill.h"
 #include "level.h"
@@ -34,10 +34,12 @@ typedef struct UserInfoNode
 int damageCalculationPlayer(SkillInfo skill, LevelInfo player, MonsterInfo monster);
 int damageCalculationMonster(SkillInfo skill, LevelInfo player, MonsterInfo monster);
 SkillInfo monsterAI(MonsterInfo monster, int curHP);
+void campaign();
 //UTILITY FUNCTIONS
+void printUserLog(char user[], char skill[], int dmg, Type type);
+void printMonsterLog(char monster[], char skill[], int dmg, Type type);
+// Move these to server
 UserNode *loadUserInfo();
-
-
 
 UserNode *makeNewNode(UserInfo data); //Create a new node for the account linked list
 

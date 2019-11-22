@@ -4,11 +4,14 @@ LIBS =  -lm
 
 all: termadv
 
-termadv: client.o level.o stage.o monster.o skill.o 
-	${CC} client.o level.o stage.o monster.o skill.o  -o termadv
+termadv: client.o game.o level.o stage.o monster.o skill.o 
+	${CC} client.o game.o level.o stage.o monster.o skill.o  -o termadv
 
 client.o: client.c
 	${CC} ${CFLAGS} client.c
+
+game.o: game.c
+	${CC} ${CFLAGS} game.c
 
 stage.o: stage.c
 	${CC} ${CFLAGS} stage.c
