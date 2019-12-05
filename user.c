@@ -7,6 +7,7 @@ UserNode *findUser(UserNode *root, char *username)
 {
     UserNode *tmp = root;
     while(tmp) {
+        printf("comparing: %s\n", tmp->user.username);
         if (strcmp(tmp->user.username, username) == 0)
             return tmp;
         tmp = tmp->next;
