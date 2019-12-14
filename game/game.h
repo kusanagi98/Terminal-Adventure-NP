@@ -1,8 +1,8 @@
 #ifndef __GAME_H__
 #define __GAME_H__
-#include "monster.h"
-#include "skill.h"
-#include "level.h"
+#include "../struct/monster.h"
+#include "../struct/skill.h"
+#include "../struct/level.h"
 #define BUF_SIZE 100
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"

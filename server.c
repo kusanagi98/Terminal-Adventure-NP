@@ -1,6 +1,6 @@
-#include "mysocket.h"
-#include "gamemaster.h"
-#include "serverfunc.h"
+#include "helper/mysocket.h"
+#include "game/gamemaster.h"
+#include "interface/serverfunc.h"
 
 UserNode *root = NULL; //linked list root
 
@@ -20,8 +20,6 @@ int main(int argc, char const *argv[])
     int childfd;
     /* flag value for setsockopt */
     int optval;
-    /* message byte size */
-    int n;
     /* max fd set */
     int maxfd;
     /* file descriptor set */
@@ -111,6 +109,7 @@ int main(int argc, char const *argv[])
 
         if (FD_ISSET(parentfd, &master_set))
         {
+            printf("listening\n");
             bzero(&clientaddr, sizeof(clientaddr));
             clientlen = sizeof(clientaddr);
             if ((childfd = accept(parentfd, (struct sockaddr *)&clientaddr, &clientlen)) == -1)
@@ -134,14 +133,19 @@ int main(int argc, char const *argv[])
             {
                 if (FD_ISSET(client_socket[i], &master_set))
                 {
-                    handleRequest(client_socket[i], root);
-                    close(client_socket[i]);
-                    client_socket[i] = 0;
+                    printf("socket .. %d working\n", client_socket[i]);
+                    if (handleRequest(client_socket[i], &root) == 0)
+                    {
+                        /* close socket after user */
+                        // printf("close fd %d\n", client_socket[i]);
+                        close(client_socket[i]);
+                        client_socket[i] = 0;
+                    }
                 }
             }
         }
     } while (1);
-    
+
     close(parentfd);
     return 0;
 }

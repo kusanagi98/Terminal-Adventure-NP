@@ -19,6 +19,7 @@ typedef struct UserInformation
 typedef struct UserInfoNode
 {
     UserInfo user;
+    int loggedin;
     struct UserInfoNode *next;
 } UserNode;
 
@@ -33,5 +34,11 @@ void freeList(UserNode *root);
 void printList(UserNode *root);
 
 UserNode *findUser(UserNode *root, char *username);
+
+UserNode *sortUserlist(UserNode *root);
+
+UserInfo initUserInfo(char *username, char *password);
+
+void writeUserData(UserNode *root);
 
 #endif

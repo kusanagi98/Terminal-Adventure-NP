@@ -1,2 +1,6 @@
-kiennd kiennd123 1 0 200 50 0
+kiennd kiennd123 2 160 121 11 1
 nagare kawano123 2 100 50 20 1
+nagare2 kawano123 2 100 50 20 3
+nagare3 kawano123 2 100 50 20 6
+nagare4 kawano123 2 100 50 20 2
+kiennd1 123456 1 0 100 50 1
