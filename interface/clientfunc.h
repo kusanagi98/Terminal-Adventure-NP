@@ -13,16 +13,20 @@
 #include <sys/time.h>
 #include <errno.h>
 
-#include "mysocket.h"
-#include "user.h"
+#include "../helper/mysocket.h"
+#include "../struct/user.h"
 
 #ifndef __CLIENTFUNC_H__
 #define __CLIENTFUNC_H__
 
 #define BUFFER_LEN 1024
+#define MAX_FIELDS 100
 
 void login(int connfd);
+void registerFunc(int connfd);
 void fetchPlayerData(int connfd);
-void playMenu();
+void playMenu(int connfd);
+void updateUserInfo(int connfd, UserInfo user);
+void fetchHighScore(int connfd);
 
 #endif
