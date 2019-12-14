@@ -1,7 +1,7 @@
 #ifndef __GAMEMASTER_H__
 #define __GAMEMASTER_H__
 
-#include "user.h"
+#include "../struct/user.h"
 
 extern UserNode *root;
 
