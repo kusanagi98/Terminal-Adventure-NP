@@ -13,6 +13,23 @@
 #define WHT   "\x1B[37m"
 #define RESET "\x1B[0m"
 
+typedef struct UserInformation
+{
+    char username[STRING_LEN];
+    char password[STRING_LEN];
+    int level;
+    int curExp;
+    int curHP;
+    int curMP;
+    int stage;
+} UserInfo;
+typedef struct UserInfoNode
+{
+    UserInfo user;
+    struct UserInfoNode *next;
+} UserNode;
+
+
 //GAME MECHANICS FUNCTIONS
 int damageCalculationPlayer(SkillInfo skill, LevelInfo player, MonsterInfo monster);
 int damageCalculationMonster(SkillInfo skill, LevelInfo player, MonsterInfo monster);
@@ -23,6 +40,16 @@ char stageoverChoice();
 //UTILITY FUNCTIONS
 void printUserLog(char user[], char skill[], int dmg, Type type);
 void printMonsterLog(char monster[], char skill[], int dmg, Type type);
+// Move these to server
+UserNode *loadUserInfo();
+
+void storeUserInfo(UserNode *head);
+
+UserNode *makeNewNode(UserInfo data); //Create a new node for the account linked list
+
+UserNode *insertNode(UserNode *root, UserNode *new); //Append the new node to the account linked list
+
+void freeList(UserNode *root);
 
 #endif
 

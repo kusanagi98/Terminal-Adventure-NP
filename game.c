@@ -12,9 +12,7 @@
 #include "monster.h"
 #include "level.h"
 #include "stage.h"
-#include "user.h"
 #include "game.h"
-
 extern SkillInfo skills[];
 extern LevelInfo levels[];
 extern MonsterInfo monsters[];
@@ -22,24 +20,21 @@ extern StageInfo stages[];
 int userCurHP, userCurMP, userCurLevel, userCurExp, userCurStage, monsterCurHP, monsterCurMP, curDmg;
 int userStageHP, userStageMP; //Hold user's hp and mp at the start of the stage for reload
 SkillInfo monsterSkill;
-extern UserInfo user;
-
+extern UserNode *root;
 void campaign()
 {
     int i, j, k, x;
     char ch1, ch2, ch3, ch4, temp;
     char nattack[] = "Normal Attack";
-    printf("%s\n", user.username);
+    printf("%s\n", root->user.username);
     printf("Game start\n");
     printf("--------------------------------\n");
     // Hold user info to local variables
-    userCurLevel = user.level;
-    userCurHP = user.curHP;
-    userCurMP = user.curMP;
-    userCurExp = user.curExp;
-    userCurStage = user.stage;
-
-    printf("test: level: %d - HP: %d - MP: %d - XP: %d - stage: %d\n", userCurLevel, userCurHP, userCurMP, userCurExp, userCurStage);
+    userCurLevel = root->user.level;
+    userCurHP = root->user.curHP;
+    userCurMP = root->user.curMP;
+    userCurExp = root->user.curExp;
+    userCurStage = root->user.stage;
     // Go through all the stages from the saved one
     for (i = userCurStage; i < MAX_STAGE; i++)
     {
@@ -58,7 +53,7 @@ void campaign()
             monsterCurMP = stages[i].monsters[j].mp;
             while (1)
             {
-                printf(YEL "%s" RESET "\t" MAG "%s\n" RESET, user.username, stages[i].monsters[j].name);
+                printf(YEL "%s" RESET "\t" MAG "%s\n" RESET, root->user.username, stages[i].monsters[j].name);
                 printf(YEL "HP" RESET ":%d\t" MAG "HP" RESET ":%d\n", userCurHP, monsterCurHP);
                 printf(YEL "MP" RESET ":%d\t" MAG "MP" RESET ":%d\n", userCurMP, monsterCurMP);
                 printf("--------------------------------\n");
@@ -76,7 +71,7 @@ void campaign()
                         // Normal Attack
                         curDmg = damageCalculationPlayer(skills[SKILL_COUNT - 1], levels[userCurLevel - 1], stages[i].monsters[j]);
                         monsterCurHP -= curDmg;
-                        printUserLog(user.username, nattack, curDmg, T_NORMAL);
+                        printUserLog(root->user.username, nattack, curDmg, T_NORMAL);
                     }
                     else if (ch1 == '2')
                     {
@@ -110,14 +105,14 @@ void campaign()
                                         curDmg -= userCurHP - levels[userCurLevel - 1].hp;
                                         userCurHP = levels[userCurLevel - 1].hp;
                                     }
-                                    printUserLog(user.username, levels[userCurLevel - 1].skills[x - 1].name, curDmg, levels[userCurLevel - 1].skills[x - 1].type);
+                                    printUserLog(root->user.username, levels[userCurLevel - 1].skills[x - 1].name, curDmg, levels[userCurLevel - 1].skills[x - 1].type);
                                 }
                                 else
                                 {
                                     curDmg = damageCalculationPlayer(levels[userCurLevel - 1].skills[x - 1], levels[userCurLevel - 1], stages[i].monsters[j]);
                                     monsterCurHP -= curDmg;
                                     userCurMP -= levels[userCurLevel - 1].skills[x - 1].mpcost;
-                                    printUserLog(user.username, levels[userCurLevel - 1].skills[x - 1].name, curDmg, levels[userCurLevel - 1].skills[x - 1].type);
+                                    printUserLog(root->user.username, levels[userCurLevel - 1].skills[x - 1].name, curDmg, levels[userCurLevel - 1].skills[x - 1].type);
                                 }
                             }
                             else
@@ -129,7 +124,7 @@ void campaign()
                     }
                     else
                     {
-                        continue;
+                        //continue;
                     }
                 } while (ch1 != '1' && ch1 != '2');
                 // Monster turn
@@ -157,7 +152,7 @@ void campaign()
                         {
                             //Reload from the start of the stage or stop
                             printf("--------------------------------\n");
-                            printf(YEL "%s" RESET " lost\n", user.username);
+                            printf(YEL "%s" RESET " lost\n", root->user.username);
                             printf("--------------------------------\n");
                             ch3 = gameoverChoice();
                             break;
@@ -176,10 +171,10 @@ void campaign()
             }
             // Win
             printf("--------------------------------\n");
-            printf(YEL "%s" RESET " defeated %s\n", user.username, stages[i].monsters[j].name);
+            printf(YEL "%s" RESET " defeated %s\n", root->user.username, stages[i].monsters[j].name);
             if (userCurLevel < MAX_LEVEL)
             {
-                printf(YEL "%s" RESET " gained %d EXP\n", user.username, stages[i].monsters[j].exp);
+                printf(YEL "%s" RESET " gained %d EXP\n", root->user.username, stages[i].monsters[j].exp);
                 userCurExp += stages[i].monsters[j].exp;
                 if (userCurExp >= levels[userCurLevel - 1].maxexp)
                 {
@@ -187,7 +182,7 @@ void campaign()
                     userCurHP = levels[userCurLevel - 1].hp;
                     userCurMP = levels[userCurLevel - 1].mp;
                     userCurExp = 0;
-                    printf(YEL "%s" RESET " grew to Level %d \n", user.username, userCurLevel);
+                    printf(YEL "%s" RESET " grew to Level %d \n", root->user.username, userCurLevel);
                 }
             }
             printf("--------------------------------\n");
@@ -206,16 +201,16 @@ void campaign()
         else
         {
             printf("--------------------------------\n");
-            printf(YEL "%s" RESET " beat stage %d\n", user.username, i);
+            printf(YEL "%s" RESET " beat stage %d\n", root->user.username, i);
             printf("--------------------------------\n");
             userCurStage += 1;
             //Save (move to server)
-            user.level = userCurLevel;
-            user.curExp = userCurExp;
-            user.curHP = userCurHP;
-            user.curMP = userCurMP;
-            user.stage = userCurStage;
-            // storeUserInfo(root);
+            root->user.level = userCurLevel;
+            root->user.curExp = userCurExp;
+            root->user.curHP = userCurHP;
+            root->user.curMP = userCurMP;
+            root->user.stage = userCurStage;
+            storeUserInfo(root);
             ////Menu for continue or stop playing
             ch4 = stageoverChoice();
             if (ch4 == '2')
@@ -310,23 +305,23 @@ void printUserLog(char user[], char skill[], int dmg, Type type)
     switch (type)
     {
     case T_HEAL:
-        printf(YEL "%s" RESET " uses " WHT "%s" RESET " -- ", user, skill);
+        printf(YEL "%s" RESET " uses " WHT "%s" RESET "\n", user, skill);
         printf(YEL "%s" RESET " heals for %d hp\n", user, dmg);
         break;
     case T_WATER:
-        printf(YEL "%s" RESET " uses " BLU "%s" RESET " -- ", user, skill);
+        printf(YEL "%s" RESET " uses " BLU "%s" RESET "\n", user, skill);
         printf(YEL "%s" RESET " deals %d\n", user, dmg);
         break;
     case T_FIRE:
-        printf(YEL "%s" RESET " uses " RED "%s" RESET " -- ", user, skill);
+        printf(YEL "%s" RESET " uses " RED "%s" RESET "\n", user, skill);
         printf(YEL "%s" RESET " deals %d\n", user, dmg);
         break;
     case T_GRASS:
-        printf(YEL "%s" RESET " uses " GRN "%s" RESET " -- ", user, skill);
+        printf(YEL "%s" RESET " uses " GRN "%s" RESET "\n", user, skill);
         printf(YEL "%s" RESET " deals %d\n", user, dmg);
         break;
     default:
-        printf(YEL "%s" RESET " uses " CYN "%s" RESET " -- ", user, skill);
+        printf(YEL "%s" RESET " uses " CYN "%s" RESET "\n", user, skill);
         printf(YEL "%s" RESET " deals %d\n", user, dmg);
         break;
     }
@@ -336,16 +331,45 @@ void printMonsterLog(char user[], char skill[], int dmg, Type type)
     switch (type)
     {
     case T_HEAL:
-        printf(MAG "%s" RESET " uses " WHT "%s" RESET " -- ", user, skill);
+        printf(MAG "%s" RESET " uses " WHT "%s" RESET "\n", user, skill);
         printf(MAG "%s" RESET " heals for %d hp\n", user, dmg);
         break;
     default:
-        printf(MAG "%s" RESET " uses " CYN "%s" RESET " -- ", user, skill);
+        printf(MAG "%s" RESET " uses " CYN "%s" RESET "\n", user, skill);
         printf(MAG "%s" RESET " deals %d\n", user, dmg);
         break;
     }
 }
-
+UserNode *loadUserInfo()
+{
+    FILE *f;
+    UserInfo tmp;
+    UserNode *list = NULL;
+    f = fopen("userinfo.txt", "r");
+    if (f == NULL)
+    {
+        printf("Error: Can\'t read input file!\n");
+        exit(EXIT_FAILURE);
+    }
+    while (fscanf(f, "%s", tmp.username) != EOF)
+    {
+        fgetc(f);
+        fscanf(f, "%s", tmp.password);
+        fgetc(f);
+        fscanf(f, "%d", &tmp.level);
+        fgetc(f);
+        fscanf(f, "%d", &tmp.curExp);
+        fgetc(f);
+        fscanf(f, "%d", &tmp.curHP);
+        fgetc(f);
+        fscanf(f, "%d", &tmp.curMP);
+        fgetc(f);
+        fscanf(f, "%d", &tmp.stage);
+        list = insertNode(list, makeNewNode(tmp));
+    }
+    fclose(f);
+    return list;
+}
 void storeUserInfo(UserNode *head)
 {
     UserNode *cur = NULL;
@@ -360,4 +384,32 @@ void storeUserInfo(UserNode *head)
         cur = cur->next;
     }
     fclose(f);
+}
+UserNode *makeNewNode(UserInfo data)
+{
+    UserNode *new = (UserNode *)malloc(sizeof(UserNode));
+    new->user = data;
+    new->next = NULL;
+    return new;
+}
+UserNode *insertNode(UserNode *root, UserNode *new)
+{
+    UserNode *cur = NULL;
+    if (root == NULL)
+        return new;
+    cur = root;
+    while (cur->next != NULL)
+        cur = cur->next;
+    cur->next = new;
+    return root;
+}
+void freeList(UserNode *root)
+{
+    UserNode *tmp = NULL;
+    while (root != NULL)
+    {
+        tmp = root;
+        root = root->next;
+        free(tmp);
+    }
 }
