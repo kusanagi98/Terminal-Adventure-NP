@@ -7,14 +7,14 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#include "struct/skill.h"
-#include "struct/monster.h"
-#include "struct/level.h"
-#include "struct/stage.h"
-#include "struct/user.h"
-#include "game/game.h"
-#include "helper/mysocket.h"
-#include "interface/clientfunc.h"
+#include "skill.h"
+#include "monster.h"
+#include "level.h"
+#include "stage.h"
+#include "user.h"
+#include "game.h"
+#include "mysocket.h"
+#include "clientfunc.h"
 
 #define BUFFER_LEN 1024
 //int userCurHP, userCurMP, userCurLevel, userCurExp, userCurStage, monsterCurHP, monsterCurMP, curDmg;
@@ -23,12 +23,12 @@ char ch;   //options
 char temp; //temp for consuming \n
 //UserInfo tmp;          //temp for storing info from input file
 UserInfo user; //store UserInfo
-struct sockaddr_in servaddr;
-int sockfd;
 
 int main(int argc, char const *argv[])
 {
+    int sockfd;
     int port;
+    struct sockaddr_in servaddr;
 
     /* config client */
     if (argc < 3)
@@ -86,9 +86,8 @@ int main(int argc, char const *argv[])
         // TODO: Create profile and login
         printf("\n|---------------------------------------|");
         printf("\n|\t1. Sign in                      |");
-        printf("\n|\t2. Register                     |");
-        printf("\n|\t3. High score                   |");
-        printf("\n|\t4. Sign out                     |");
+        printf("\n|\t2. Search                       |");
+        printf("\n|\t3. Sign out                     |");
         printf("\n|---------------------------------------|");
         printf("\nYour choice(1, other to quit):");
         ch = getchar();
@@ -96,16 +95,21 @@ int main(int argc, char const *argv[])
         scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
         if (ch == '1')
         {
+            // campaign();
             login(sockfd);
-            playMenu(sockfd);
+            printf(
+                "User status: " GRN " Level: %d" RESET " - " RED " HP: %d" RESET " - " BLU " MP: %d" RESET " - " MAG "EXP: %d" RESET " - " WHT "Stage: %d" RESET "\n",
+                user.level,
+                user.curHP,
+                user.curMP,
+                user.curExp,
+                user.stage);
+            playMenu();
         }
-        else if(ch == '2')
-        {
-            registerFunc(sockfd);
-        }
-        else if(ch=='3') {
-          fetchHighScore(sockfd);
-        }
+        // else if(ch=='2') {
+        //   signinUser(root, argv[1]);
+        //   scanf("%c",&temp);
+        // }
         // else if(ch=='3') {
         //   searchUser(root);
         //   scanf("%c",&temp);

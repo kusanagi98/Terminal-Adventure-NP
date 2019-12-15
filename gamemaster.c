@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "gamemaster.h"
+#include "user.h"
 
 UserNode *loadUserInfo()
 {

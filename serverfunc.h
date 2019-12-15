@@ -15,17 +15,13 @@
 #include <sys/time.h>
 #include <errno.h>
 
-#include "../helper/mysocket.h"
-#include "../struct/user.h"
+#include "mysocket.h"
+#include "user.h"
 #define BUFFER_LEN 1024
 
-int handleRequest(int connfd, UserNode **root);
+void handleRequest(int connfd, UserNode *root);
 
-/* handle function */
-int login(int connfd, UserNode *root);
-int addUser(int connfd, UserNode **root);
-int sendPlayerInfo(int connfd, UserNode *root);
-int updatePlayerInfo(int connfd, UserNode **root);
-int sendHighScore(int connfd, UserNode *root);
+void login(int connfd, UserNode *root);
+void sendPlayerInfo(int connfd, UserNode *user);
 
 #endif

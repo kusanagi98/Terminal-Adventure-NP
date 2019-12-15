@@ -8,13 +8,12 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#include "../struct/skill.h"
-#include "../struct/monster.h"
-#include "../struct/level.h"
-#include "../struct/stage.h"
-#include "../struct/user.h"
+#include "skill.h"
+#include "monster.h"
+#include "level.h"
+#include "stage.h"
+#include "user.h"
 #include "game.h"
-#include "../interface/clientfunc.h"
 
 extern SkillInfo skills[];
 extern LevelInfo levels[];
@@ -24,7 +23,6 @@ int userCurHP, userCurMP, userCurLevel, userCurExp, userCurStage, monsterCurHP, 
 int userStageHP, userStageMP; //Hold user's hp and mp at the start of the stage for reload
 SkillInfo monsterSkill;
 extern UserInfo user;
-extern int sockfd;
 
 void campaign()
 {
@@ -41,6 +39,7 @@ void campaign()
     userCurExp = user.curExp;
     userCurStage = user.stage;
 
+    printf("test: level: %d - HP: %d - MP: %d - XP: %d - stage: %d\n", userCurLevel, userCurHP, userCurMP, userCurExp, userCurStage);
     // Go through all the stages from the saved one
     for (i = userCurStage; i < MAX_STAGE; i++)
     {
@@ -216,14 +215,7 @@ void campaign()
             user.curHP = userCurHP;
             user.curMP = userCurMP;
             user.stage = userCurStage;
-            printf(
-                "User status: " GRN " Level: %d" RESET " - " RED " HP: %d" RESET " - " BLU " MP: %d" RESET " - " MAG "EXP: %d" RESET " - " WHT "Stage: %d" RESET "\n",
-                user.level,
-                user.curHP,
-                user.curMP,
-                user.curExp,
-                user.stage);
-            updateUserInfo(sockfd, user);
+            // storeUserInfo(root);
             ////Menu for continue or stop playing
             ch4 = stageoverChoice();
             if (ch4 == '2')
@@ -352,4 +344,20 @@ void printMonsterLog(char user[], char skill[], int dmg, Type type)
         printf(MAG "%s" RESET " deals %d\n", user, dmg);
         break;
     }
+}
+
+void storeUserInfo(UserNode *head)
+{
+    UserNode *cur = NULL;
+    FILE *f;
+    if (head == NULL)
+        return;
+    cur = head;
+    f = fopen("userinfo.txt", "w");
+    while (cur != NULL)
+    {
+        fprintf(f, "%s %s %d %d %d %d %d\n", cur->user.username, cur->user.password, cur->user.level, cur->user.curExp, cur->user.curHP, cur->user.curMP, cur->user.stage);
+        cur = cur->next;
+    }
+    fclose(f);
 }
