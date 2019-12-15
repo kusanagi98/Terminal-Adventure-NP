@@ -1,0 +1,241 @@
+\hypertarget{game_8h}{}\section{game/game.h File Reference}
+\label{game_8h}\index{game/game.\+h@{game/game.\+h}}
+{\ttfamily \#include \char`\"{}../struct/monster.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../struct/skill.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../struct/level.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{game_8h_a6821bafc3c88dfb2e433a095df9940c6}{B\+U\+F\+\_\+\+S\+I\+ZE}~100
+\item 
+\#define \hyperlink{game_8h_a8d23feea868a983c8c2b661e1e16972f}{R\+ED}~\char`\"{}\textbackslash{}x1B\mbox{[}31m\char`\"{}
+\item 
+\#define \hyperlink{game_8h_aea69ffbacdcdf16c21b8c9961df84448}{G\+RN}~\char`\"{}\textbackslash{}x1B\mbox{[}32m\char`\"{}
+\item 
+\#define \hyperlink{game_8h_a96fac03c4ab3363f06a0328e0e53a40c}{Y\+EL}~\char`\"{}\textbackslash{}x1B\mbox{[}33m\char`\"{}
+\item 
+\#define \hyperlink{game_8h_add9307de87f38e77d336751e305886f6}{B\+LU}~\char`\"{}\textbackslash{}x1B\mbox{[}34m\char`\"{}
+\item 
+\#define \hyperlink{game_8h_af54a5a977c0c499323d656315f008ee0}{M\+AG}~\char`\"{}\textbackslash{}x1B\mbox{[}35m\char`\"{}
+\item 
+\#define \hyperlink{game_8h_adc708fa688f5d78db361f66c36f0f807}{C\+YN}~\char`\"{}\textbackslash{}x1B\mbox{[}36m\char`\"{}
+\item 
+\#define \hyperlink{game_8h_aeaf3a04d5bf63b204689a714718ea930}{W\+HT}~\char`\"{}\textbackslash{}x1B\mbox{[}37m\char`\"{}
+\item 
+\#define \hyperlink{game_8h_ab702106cf3b3e96750b6845ded4e0299}{R\+E\+S\+ET}~\char`\"{}\textbackslash{}x1B\mbox{[}0m\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{game_8h_a39a892067862d2cb3a02dd9e2ff1a1d5}{damage\+Calculation\+Player} (\hyperlink{skill_8h_aa7a27dc845bcc95c786a871b170bf850}{Skill\+Info} skill, \hyperlink{level_8h_ad4e0b7ba0c128857c0147c7c30c8fb41}{Level\+Info} player, \hyperlink{monster_8h_a9cf794f86d46134ab9aedff84bd7ab31}{Monster\+Info} monster)
+\begin{DoxyCompactList}\small\item\em Player\textquotesingle{}s damage calculation. \end{DoxyCompactList}\item 
+int \hyperlink{game_8h_a740c0de7373eb3ccf42f3b19e5627e68}{damage\+Calculation\+Monster} (\hyperlink{skill_8h_aa7a27dc845bcc95c786a871b170bf850}{Skill\+Info} skill, \hyperlink{level_8h_ad4e0b7ba0c128857c0147c7c30c8fb41}{Level\+Info} player, \hyperlink{monster_8h_a9cf794f86d46134ab9aedff84bd7ab31}{Monster\+Info} monster)
+\begin{DoxyCompactList}\small\item\em Monster\textquotesingle{}s damage calculation. \end{DoxyCompactList}\item 
+\hyperlink{skill_8h_aa7a27dc845bcc95c786a871b170bf850}{Skill\+Info} \hyperlink{game_8h_a3c47ae61f867e2e8bd351d136e1ce39f}{monster\+AI} (\hyperlink{monster_8h_a9cf794f86d46134ab9aedff84bd7ab31}{Monster\+Info} monster, int cur\+HP)
+\begin{DoxyCompactList}\small\item\em Monster\textquotesingle{}s behavior. \end{DoxyCompactList}\item 
+void \hyperlink{game_8h_ab18275cfdbd80163803c701d72b57b06}{campaign} ()
+\begin{DoxyCompactList}\small\item\em P\+VE mode. \end{DoxyCompactList}\item 
+char \hyperlink{game_8h_aa0c7fa3cfa1418a1a4719a04939684d4}{gameover\+Choice} ()
+\begin{DoxyCompactList}\small\item\em Game over menu. \end{DoxyCompactList}\item 
+char \hyperlink{game_8h_af861066ee9762dac10ea46eeb56a8366}{stageover\+Choice} ()
+\begin{DoxyCompactList}\small\item\em Game over menu. \end{DoxyCompactList}\item 
+void \hyperlink{game_8h_a74a900a9b63db709b7a2d78a6fcbf016}{print\+User\+Log} (char \hyperlink{clientfunc_8c_a56b4cf2a5c02838f61ce6eafe6b65f30}{user}\mbox{[}$\,$\mbox{]}, char skill\mbox{[}$\,$\mbox{]}, int dmg, \hyperlink{skill_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type} type)
+\begin{DoxyCompactList}\small\item\em Print User log. \end{DoxyCompactList}\item 
+void \hyperlink{game_8h_a9e4887e41693feffbfcd2960ba663740}{print\+Monster\+Log} (char monster\mbox{[}$\,$\mbox{]}, char skill\mbox{[}$\,$\mbox{]}, int dmg, \hyperlink{skill_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type} type)
+\begin{DoxyCompactList}\small\item\em Print Monster log. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{game_8h_add9307de87f38e77d336751e305886f6}\label{game_8h_add9307de87f38e77d336751e305886f6}} 
+\index{game.\+h@{game.\+h}!B\+LU@{B\+LU}}
+\index{B\+LU@{B\+LU}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{B\+LU}{BLU}}
+{\footnotesize\ttfamily \#define B\+LU~\char`\"{}\textbackslash{}x1B\mbox{[}34m\char`\"{}}
+
+Print in Blue color \mbox{\Hypertarget{game_8h_a6821bafc3c88dfb2e433a095df9940c6}\label{game_8h_a6821bafc3c88dfb2e433a095df9940c6}} 
+\index{game.\+h@{game.\+h}!B\+U\+F\+\_\+\+S\+I\+ZE@{B\+U\+F\+\_\+\+S\+I\+ZE}}
+\index{B\+U\+F\+\_\+\+S\+I\+ZE@{B\+U\+F\+\_\+\+S\+I\+ZE}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{B\+U\+F\+\_\+\+S\+I\+ZE}{BUF\_SIZE}}
+{\footnotesize\ttfamily \#define B\+U\+F\+\_\+\+S\+I\+ZE~100}
+
+Maximum buffer size \mbox{\Hypertarget{game_8h_adc708fa688f5d78db361f66c36f0f807}\label{game_8h_adc708fa688f5d78db361f66c36f0f807}} 
+\index{game.\+h@{game.\+h}!C\+YN@{C\+YN}}
+\index{C\+YN@{C\+YN}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{C\+YN}{CYN}}
+{\footnotesize\ttfamily \#define C\+YN~\char`\"{}\textbackslash{}x1B\mbox{[}36m\char`\"{}}
+
+Print in Cyn color \mbox{\Hypertarget{game_8h_aea69ffbacdcdf16c21b8c9961df84448}\label{game_8h_aea69ffbacdcdf16c21b8c9961df84448}} 
+\index{game.\+h@{game.\+h}!G\+RN@{G\+RN}}
+\index{G\+RN@{G\+RN}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{G\+RN}{GRN}}
+{\footnotesize\ttfamily \#define G\+RN~\char`\"{}\textbackslash{}x1B\mbox{[}32m\char`\"{}}
+
+Print in Greed color \mbox{\Hypertarget{game_8h_af54a5a977c0c499323d656315f008ee0}\label{game_8h_af54a5a977c0c499323d656315f008ee0}} 
+\index{game.\+h@{game.\+h}!M\+AG@{M\+AG}}
+\index{M\+AG@{M\+AG}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{M\+AG}{MAG}}
+{\footnotesize\ttfamily \#define M\+AG~\char`\"{}\textbackslash{}x1B\mbox{[}35m\char`\"{}}
+
+Print in Mag color \mbox{\Hypertarget{game_8h_a8d23feea868a983c8c2b661e1e16972f}\label{game_8h_a8d23feea868a983c8c2b661e1e16972f}} 
+\index{game.\+h@{game.\+h}!R\+ED@{R\+ED}}
+\index{R\+ED@{R\+ED}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{R\+ED}{RED}}
+{\footnotesize\ttfamily \#define R\+ED~\char`\"{}\textbackslash{}x1B\mbox{[}31m\char`\"{}}
+
+Print in Red color \mbox{\Hypertarget{game_8h_ab702106cf3b3e96750b6845ded4e0299}\label{game_8h_ab702106cf3b3e96750b6845ded4e0299}} 
+\index{game.\+h@{game.\+h}!R\+E\+S\+ET@{R\+E\+S\+ET}}
+\index{R\+E\+S\+ET@{R\+E\+S\+ET}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{R\+E\+S\+ET}{RESET}}
+{\footnotesize\ttfamily \#define R\+E\+S\+ET~\char`\"{}\textbackslash{}x1B\mbox{[}0m\char`\"{}}
+
+Print Reset \mbox{\Hypertarget{game_8h_aeaf3a04d5bf63b204689a714718ea930}\label{game_8h_aeaf3a04d5bf63b204689a714718ea930}} 
+\index{game.\+h@{game.\+h}!W\+HT@{W\+HT}}
+\index{W\+HT@{W\+HT}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{W\+HT}{WHT}}
+{\footnotesize\ttfamily \#define W\+HT~\char`\"{}\textbackslash{}x1B\mbox{[}37m\char`\"{}}
+
+Print in White color \mbox{\Hypertarget{game_8h_a96fac03c4ab3363f06a0328e0e53a40c}\label{game_8h_a96fac03c4ab3363f06a0328e0e53a40c}} 
+\index{game.\+h@{game.\+h}!Y\+EL@{Y\+EL}}
+\index{Y\+EL@{Y\+EL}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{Y\+EL}{YEL}}
+{\footnotesize\ttfamily \#define Y\+EL~\char`\"{}\textbackslash{}x1B\mbox{[}33m\char`\"{}}
+
+Print in Yellow color 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{game_8h_ab18275cfdbd80163803c701d72b57b06}\label{game_8h_ab18275cfdbd80163803c701d72b57b06}} 
+\index{game.\+h@{game.\+h}!campaign@{campaign}}
+\index{campaign@{campaign}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{campaign()}{campaign()}}
+{\footnotesize\ttfamily void campaign (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+P\+VE mode. 
+
+\mbox{\Hypertarget{game_8h_a740c0de7373eb3ccf42f3b19e5627e68}\label{game_8h_a740c0de7373eb3ccf42f3b19e5627e68}} 
+\index{game.\+h@{game.\+h}!damage\+Calculation\+Monster@{damage\+Calculation\+Monster}}
+\index{damage\+Calculation\+Monster@{damage\+Calculation\+Monster}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{damage\+Calculation\+Monster()}{damageCalculationMonster()}}
+{\footnotesize\ttfamily int damage\+Calculation\+Monster (\begin{DoxyParamCaption}\item[{\hyperlink{skill_8h_aa7a27dc845bcc95c786a871b170bf850}{Skill\+Info}}]{skill,  }\item[{\hyperlink{level_8h_ad4e0b7ba0c128857c0147c7c30c8fb41}{Level\+Info}}]{player,  }\item[{\hyperlink{monster_8h_a9cf794f86d46134ab9aedff84bd7ab31}{Monster\+Info}}]{monster }\end{DoxyParamCaption})}
+
+
+
+Monster\textquotesingle{}s damage calculation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Skill\+Info} & Monster skill \\
+\hline
+{\em Level\+Info} & Player\textquotesingle{}s level info \\
+\hline
+{\em Monster\+Info} & Monster information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8h_a39a892067862d2cb3a02dd9e2ff1a1d5}\label{game_8h_a39a892067862d2cb3a02dd9e2ff1a1d5}} 
+\index{game.\+h@{game.\+h}!damage\+Calculation\+Player@{damage\+Calculation\+Player}}
+\index{damage\+Calculation\+Player@{damage\+Calculation\+Player}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{damage\+Calculation\+Player()}{damageCalculationPlayer()}}
+{\footnotesize\ttfamily int damage\+Calculation\+Player (\begin{DoxyParamCaption}\item[{\hyperlink{skill_8h_aa7a27dc845bcc95c786a871b170bf850}{Skill\+Info}}]{skill,  }\item[{\hyperlink{level_8h_ad4e0b7ba0c128857c0147c7c30c8fb41}{Level\+Info}}]{player,  }\item[{\hyperlink{monster_8h_a9cf794f86d46134ab9aedff84bd7ab31}{Monster\+Info}}]{monster }\end{DoxyParamCaption})}
+
+
+
+Player\textquotesingle{}s damage calculation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Skill\+Info} & Player skill \\
+\hline
+{\em Level\+Info} & Player\textquotesingle{}s level info \\
+\hline
+{\em Monster\+Info} & Monster information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8h_aa0c7fa3cfa1418a1a4719a04939684d4}\label{game_8h_aa0c7fa3cfa1418a1a4719a04939684d4}} 
+\index{game.\+h@{game.\+h}!gameover\+Choice@{gameover\+Choice}}
+\index{gameover\+Choice@{gameover\+Choice}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{gameover\+Choice()}{gameoverChoice()}}
+{\footnotesize\ttfamily char gameover\+Choice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Game over menu. 
+
+\begin{DoxyReturn}{Returns}
+Player choice 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a3c47ae61f867e2e8bd351d136e1ce39f}\label{game_8h_a3c47ae61f867e2e8bd351d136e1ce39f}} 
+\index{game.\+h@{game.\+h}!monster\+AI@{monster\+AI}}
+\index{monster\+AI@{monster\+AI}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{monster\+A\+I()}{monsterAI()}}
+{\footnotesize\ttfamily \hyperlink{skill_8h_aa7a27dc845bcc95c786a871b170bf850}{Skill\+Info} monster\+AI (\begin{DoxyParamCaption}\item[{\hyperlink{monster_8h_a9cf794f86d46134ab9aedff84bd7ab31}{Monster\+Info}}]{monster,  }\item[{int}]{cur\+HP }\end{DoxyParamCaption})}
+
+
+
+Monster\textquotesingle{}s behavior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Monster\+Info} & Monster information \\
+\hline
+{\em int} & Monster current HP\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Monster Skill 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a9e4887e41693feffbfcd2960ba663740}\label{game_8h_a9e4887e41693feffbfcd2960ba663740}} 
+\index{game.\+h@{game.\+h}!print\+Monster\+Log@{print\+Monster\+Log}}
+\index{print\+Monster\+Log@{print\+Monster\+Log}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{print\+Monster\+Log()}{printMonsterLog()}}
+{\footnotesize\ttfamily void print\+Monster\+Log (\begin{DoxyParamCaption}\item[{char}]{monster\mbox{[}$\,$\mbox{]},  }\item[{char}]{skill\mbox{[}$\,$\mbox{]},  }\item[{int}]{dmg,  }\item[{\hyperlink{skill_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type}}]{type }\end{DoxyParamCaption})}
+
+
+
+Print Monster log. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & Monster name \\
+\hline
+{\em String} & Skill name \\
+\hline
+{\em int} & Damage \\
+\hline
+{\em Type} & Skill type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8h_a74a900a9b63db709b7a2d78a6fcbf016}\label{game_8h_a74a900a9b63db709b7a2d78a6fcbf016}} 
+\index{game.\+h@{game.\+h}!print\+User\+Log@{print\+User\+Log}}
+\index{print\+User\+Log@{print\+User\+Log}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{print\+User\+Log()}{printUserLog()}}
+{\footnotesize\ttfamily void print\+User\+Log (\begin{DoxyParamCaption}\item[{char}]{user\mbox{[}$\,$\mbox{]},  }\item[{char}]{skill\mbox{[}$\,$\mbox{]},  }\item[{int}]{dmg,  }\item[{\hyperlink{skill_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type}}]{type }\end{DoxyParamCaption})}
+
+
+
+Print User log. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & Username \\
+\hline
+{\em String} & Skill name \\
+\hline
+{\em int} & Damage \\
+\hline
+{\em Type} & Skill type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8h_af861066ee9762dac10ea46eeb56a8366}\label{game_8h_af861066ee9762dac10ea46eeb56a8366}} 
+\index{game.\+h@{game.\+h}!stageover\+Choice@{stageover\+Choice}}
+\index{stageover\+Choice@{stageover\+Choice}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{stageover\+Choice()}{stageoverChoice()}}
+{\footnotesize\ttfamily char stageover\+Choice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Game over menu. 
+
+\begin{DoxyReturn}{Returns}
+Player choice 
+\end{DoxyReturn}

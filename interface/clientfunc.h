@@ -19,14 +19,48 @@
 #ifndef __CLIENTFUNC_H__
 #define __CLIENTFUNC_H__
 
-#define BUFFER_LEN 1024
-#define MAX_FIELDS 100
+#define BUFFER_LEN 1024 /**< Maximum of buffer lenght */
 
+/**
+ * @brief Fill login form and send to server
+ * 
+ * @param int connection file desciptor
+ * */
 void login(int connfd);
+
+/**
+ * @brief Fill register form and send to server
+ * 
+ * @param int connection file desciptor
+ * */
 void registerFunc(int connfd);
+
+/**
+ * @brief Get player data from server
+ * 
+ * @param int connection file desciptor
+ * */
 void fetchPlayerData(int connfd);
+
+/**
+ * @brief Play menu
+ * 
+ * @param int connection file desciptor
+ * */
 void playMenu(int connfd);
+
+/**
+ * @brief Request for update user current status
+ * 
+ * @param int connection file desciptor
+ * */
 void updateUserInfo(int connfd, UserInfo user);
+
+/**
+ * @brief Get highscore list from server
+ * 
+ * @param int connection file descriptor
+ * */
 void fetchHighScore(int connfd);
 
 #endif

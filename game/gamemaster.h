@@ -5,7 +5,11 @@
 
 extern UserNode *root;
 
-// Move these to server
+/**
+ * @brief Load UserInfo from file
+ *
+ * @return A list of UserNode
+ * */
 UserNode *loadUserInfo();
 
 #endif

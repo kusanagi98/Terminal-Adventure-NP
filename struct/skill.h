@@ -1,9 +1,19 @@
 #ifndef __SKILL_H__
 #define __SKILL_H__
 
+<<<<<<< HEAD
 #define STRING_LEN 20
-#define SKILL_COUNT 54
+#define SKILL_COUNT 54 /**< Maximum number of skill */
+=======
+#define STRING_LEN 20 /**< Maximum number of character */
+#define SKILL_COUNT 29 /**< Maximum number of skill */
+>>>>>>> add documentation and fix fetch highscore
 
+/**
+ * @brief Skill enum
+ * 
+ * List of skill 
+ * */
 typedef enum
 {
     S_EMBER,
@@ -61,6 +71,11 @@ typedef enum
     ES_SUPERNOVA,
     S_NORMALATTACK
 } Skill;
+/**
+ * @brief Type enum
+ * 
+ * List of Type
+ * */
 typedef enum
 {
     T_FIRE,
@@ -69,12 +84,18 @@ typedef enum
     T_NORMAL,
     T_HEAL
 } Type;
+
+/**
+ * @brief SkillInformation Structure
+ * 
+ * Structure to store Skill's Information
+ * */
 typedef struct SkillInformation
 {
-    Skill skilltype;
-    char name[STRING_LEN];
-    int dmg;
-    int mpcost;
-    Type type;
+    Skill skilltype; /**< Skill name type */
+    char name[STRING_LEN]; /**< Skill name */
+    int dmg; /**< Skill damage */
+    int mpcost; /**< Skill MP cost */
+    Type type; /**< Skill action type */
 } SkillInfo;
 #endif

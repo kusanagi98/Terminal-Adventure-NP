@@ -1,0 +1,93 @@
+\hypertarget{client_8c}{}\section{client.\+c File Reference}
+\label{client_8c}\index{client.\+c@{client.\+c}}
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}struct/skill.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}struct/monster.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}struct/level.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}struct/stage.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}struct/user.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game/game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}helper/mysocket.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interface/clientfunc.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{client_8c_a46130dc86f2322714bba26960b64e7bb}{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}~1024
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{client_8c_abf9e6b7e6f15df4b525a2e7705ba3089}{main} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{client_8c_af53f92900705f7de3c139a05b2f9ef16}{ch}
+\item 
+char \hyperlink{client_8c_a2643ad9dd7301f6523ce47c52fab0058}{temp}
+\item 
+\hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info} \hyperlink{client_8c_a56b4cf2a5c02838f61ce6eafe6b65f30}{user}
+\item 
+struct sockaddr\+\_\+in \hyperlink{client_8c_ab5a41f06e504e29fe9e13f888df8f2b4}{servaddr}
+\item 
+int \hyperlink{client_8c_ad2c8fb3df3a737e0685e902870a611d2}{sockfd}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{client_8c_a46130dc86f2322714bba26960b64e7bb}\label{client_8c_a46130dc86f2322714bba26960b64e7bb}} 
+\index{client.\+c@{client.\+c}!B\+U\+F\+F\+E\+R\+\_\+\+L\+EN@{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}}
+\index{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN@{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}{BUFFER\_LEN}}
+{\footnotesize\ttfamily \#define B\+U\+F\+F\+E\+R\+\_\+\+L\+EN~1024}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{client_8c_abf9e6b7e6f15df4b525a2e7705ba3089}\label{client_8c_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{client.\+c@{client.\+c}!main@{main}}
+\index{main@{main}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{client_8c_af53f92900705f7de3c139a05b2f9ef16}\label{client_8c_af53f92900705f7de3c139a05b2f9ef16}} 
+\index{client.\+c@{client.\+c}!ch@{ch}}
+\index{ch@{ch}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{ch}{ch}}
+{\footnotesize\ttfamily char ch}
+
+\mbox{\Hypertarget{client_8c_ab5a41f06e504e29fe9e13f888df8f2b4}\label{client_8c_ab5a41f06e504e29fe9e13f888df8f2b4}} 
+\index{client.\+c@{client.\+c}!servaddr@{servaddr}}
+\index{servaddr@{servaddr}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{servaddr}{servaddr}}
+{\footnotesize\ttfamily struct sockaddr\+\_\+in servaddr}
+
+\mbox{\Hypertarget{client_8c_ad2c8fb3df3a737e0685e902870a611d2}\label{client_8c_ad2c8fb3df3a737e0685e902870a611d2}} 
+\index{client.\+c@{client.\+c}!sockfd@{sockfd}}
+\index{sockfd@{sockfd}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{sockfd}{sockfd}}
+{\footnotesize\ttfamily int sockfd}
+
+\mbox{\Hypertarget{client_8c_a2643ad9dd7301f6523ce47c52fab0058}\label{client_8c_a2643ad9dd7301f6523ce47c52fab0058}} 
+\index{client.\+c@{client.\+c}!temp@{temp}}
+\index{temp@{temp}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{temp}{temp}}
+{\footnotesize\ttfamily char temp}
+
+\mbox{\Hypertarget{client_8c_a56b4cf2a5c02838f61ce6eafe6b65f30}\label{client_8c_a56b4cf2a5c02838f61ce6eafe6b65f30}} 
+\index{client.\+c@{client.\+c}!user@{user}}
+\index{user@{user}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily \hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info} user}
+

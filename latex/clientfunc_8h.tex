@@ -1,0 +1,140 @@
+\hypertarget{clientfunc_8h}{}\section{interface/clientfunc.h File Reference}
+\label{clientfunc_8h}\index{interface/clientfunc.\+h@{interface/clientfunc.\+h}}
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$sys/select.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../helper/mysocket.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../struct/user.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{clientfunc_8h_a46130dc86f2322714bba26960b64e7bb}{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}~1024
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{clientfunc_8h_ab2cd37f4154fa6c9b0a151b11949e5a5}{login} (int connfd)
+\begin{DoxyCompactList}\small\item\em Fill login form and send to server. \end{DoxyCompactList}\item 
+void \hyperlink{clientfunc_8h_ade65a6f269345a7169bcfd666e9ed416}{register\+Func} (int connfd)
+\begin{DoxyCompactList}\small\item\em Fill register form and send to server. \end{DoxyCompactList}\item 
+void \hyperlink{clientfunc_8h_a33a697bb0dbd7fc69f9471c4446e4104}{fetch\+Player\+Data} (int connfd)
+\begin{DoxyCompactList}\small\item\em Get player data from server. \end{DoxyCompactList}\item 
+void \hyperlink{clientfunc_8h_adac206c9b554f92f7383942c733797e5}{play\+Menu} (int connfd)
+\begin{DoxyCompactList}\small\item\em Play menu. \end{DoxyCompactList}\item 
+void \hyperlink{clientfunc_8h_a7c902368f3e16b32456ba2d080a47c1c}{update\+User\+Info} (int connfd, \hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info} \hyperlink{clientfunc_8c_a56b4cf2a5c02838f61ce6eafe6b65f30}{user})
+\begin{DoxyCompactList}\small\item\em Request for update user current status. \end{DoxyCompactList}\item 
+void \hyperlink{clientfunc_8h_aed93b9dd63aac794b6d33e1549f2aad4}{fetch\+High\+Score} (int connfd)
+\begin{DoxyCompactList}\small\item\em Get highscore list from server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{clientfunc_8h_a46130dc86f2322714bba26960b64e7bb}\label{clientfunc_8h_a46130dc86f2322714bba26960b64e7bb}} 
+\index{clientfunc.\+h@{clientfunc.\+h}!B\+U\+F\+F\+E\+R\+\_\+\+L\+EN@{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}}
+\index{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN@{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}!clientfunc.\+h@{clientfunc.\+h}}
+\subsubsection{\texorpdfstring{B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}{BUFFER\_LEN}}
+{\footnotesize\ttfamily \#define B\+U\+F\+F\+E\+R\+\_\+\+L\+EN~1024}
+
+Maximum of buffer lenght 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{clientfunc_8h_aed93b9dd63aac794b6d33e1549f2aad4}\label{clientfunc_8h_aed93b9dd63aac794b6d33e1549f2aad4}} 
+\index{clientfunc.\+h@{clientfunc.\+h}!fetch\+High\+Score@{fetch\+High\+Score}}
+\index{fetch\+High\+Score@{fetch\+High\+Score}!clientfunc.\+h@{clientfunc.\+h}}
+\subsubsection{\texorpdfstring{fetch\+High\+Score()}{fetchHighScore()}}
+{\footnotesize\ttfamily void fetch\+High\+Score (\begin{DoxyParamCaption}\item[{int}]{connfd }\end{DoxyParamCaption})}
+
+
+
+Get highscore list from server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file descriptor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{clientfunc_8h_a33a697bb0dbd7fc69f9471c4446e4104}\label{clientfunc_8h_a33a697bb0dbd7fc69f9471c4446e4104}} 
+\index{clientfunc.\+h@{clientfunc.\+h}!fetch\+Player\+Data@{fetch\+Player\+Data}}
+\index{fetch\+Player\+Data@{fetch\+Player\+Data}!clientfunc.\+h@{clientfunc.\+h}}
+\subsubsection{\texorpdfstring{fetch\+Player\+Data()}{fetchPlayerData()}}
+{\footnotesize\ttfamily void fetch\+Player\+Data (\begin{DoxyParamCaption}\item[{int}]{connfd }\end{DoxyParamCaption})}
+
+
+
+Get player data from server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file desciptor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{clientfunc_8h_ab2cd37f4154fa6c9b0a151b11949e5a5}\label{clientfunc_8h_ab2cd37f4154fa6c9b0a151b11949e5a5}} 
+\index{clientfunc.\+h@{clientfunc.\+h}!login@{login}}
+\index{login@{login}!clientfunc.\+h@{clientfunc.\+h}}
+\subsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily void login (\begin{DoxyParamCaption}\item[{int}]{connfd }\end{DoxyParamCaption})}
+
+
+
+Fill login form and send to server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file desciptor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{clientfunc_8h_adac206c9b554f92f7383942c733797e5}\label{clientfunc_8h_adac206c9b554f92f7383942c733797e5}} 
+\index{clientfunc.\+h@{clientfunc.\+h}!play\+Menu@{play\+Menu}}
+\index{play\+Menu@{play\+Menu}!clientfunc.\+h@{clientfunc.\+h}}
+\subsubsection{\texorpdfstring{play\+Menu()}{playMenu()}}
+{\footnotesize\ttfamily void play\+Menu (\begin{DoxyParamCaption}\item[{int}]{connfd }\end{DoxyParamCaption})}
+
+
+
+Play menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file desciptor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{clientfunc_8h_ade65a6f269345a7169bcfd666e9ed416}\label{clientfunc_8h_ade65a6f269345a7169bcfd666e9ed416}} 
+\index{clientfunc.\+h@{clientfunc.\+h}!register\+Func@{register\+Func}}
+\index{register\+Func@{register\+Func}!clientfunc.\+h@{clientfunc.\+h}}
+\subsubsection{\texorpdfstring{register\+Func()}{registerFunc()}}
+{\footnotesize\ttfamily void register\+Func (\begin{DoxyParamCaption}\item[{int}]{connfd }\end{DoxyParamCaption})}
+
+
+
+Fill register form and send to server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file desciptor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{clientfunc_8h_a7c902368f3e16b32456ba2d080a47c1c}\label{clientfunc_8h_a7c902368f3e16b32456ba2d080a47c1c}} 
+\index{clientfunc.\+h@{clientfunc.\+h}!update\+User\+Info@{update\+User\+Info}}
+\index{update\+User\+Info@{update\+User\+Info}!clientfunc.\+h@{clientfunc.\+h}}
+\subsubsection{\texorpdfstring{update\+User\+Info()}{updateUserInfo()}}
+{\footnotesize\ttfamily void update\+User\+Info (\begin{DoxyParamCaption}\item[{int}]{connfd,  }\item[{\hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info}}]{user }\end{DoxyParamCaption})}
+
+
+
+Request for update user current status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file desciptor \\
+\hline
+\end{DoxyParams}

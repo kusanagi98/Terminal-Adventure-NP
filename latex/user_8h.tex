@@ -1,0 +1,229 @@
+\hypertarget{user_8h}{}\section{struct/user.h File Reference}
+\label{user_8h}\index{struct/user.\+h@{struct/user.\+h}}
+
+
+File containing User structure and usage.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structUserInformation}{User\+Information}
+\begin{DoxyCompactList}\small\item\em \hyperlink{structUserInformation}{User\+Information} structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structUserInfoNode}{User\+Info\+Node}
+\begin{DoxyCompactList}\small\item\em \hyperlink{structUserInfoNode}{User\+Info\+Node} structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{user_8h_ad6d94ce273637446121c9cbd16b6077f}{S\+T\+R\+I\+N\+G\+\_\+\+L\+EN}~20
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structUserInformation}{User\+Information} \hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info}
+\begin{DoxyCompactList}\small\item\em \hyperlink{structUserInformation}{User\+Information} structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structUserInfoNode}{User\+Info\+Node} \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node}
+\begin{DoxyCompactList}\small\item\em \hyperlink{structUserInfoNode}{User\+Info\+Node} structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$ \hyperlink{user_8h_a6392a3969dd792c6125df382e55e9042}{make\+New\+Node} (\hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info} data)
+\begin{DoxyCompactList}\small\item\em Create new User\+Node with User\+Info. \end{DoxyCompactList}\item 
+\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$ \hyperlink{user_8h_a03bc62cc6e98ee9a5bba1aeaf4101a46}{insert\+Node} (\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root}, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$new)
+\begin{DoxyCompactList}\small\item\em Insert a node to User\+Node list. \end{DoxyCompactList}\item 
+void \hyperlink{user_8h_a6e3afd8b9ab9c12df077b3998940303d}{free\+List} (\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Free an User\+Node list. \end{DoxyCompactList}\item 
+void \hyperlink{user_8h_a0a3b9176866c50061f6725bd2027190f}{print\+List} (\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Print an User\+Node list. \end{DoxyCompactList}\item 
+\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$ \hyperlink{user_8h_a9a87afcb60349442a13a32e254082484}{find\+User} (\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root}, char $\ast$username)
+\begin{DoxyCompactList}\small\item\em Find an User from User\+Node list. \end{DoxyCompactList}\item 
+\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$ \hyperlink{user_8h_a2df17062ca7ba05bbb0922114f805308}{sort\+Userlist} (\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Sort a node to User\+Node list. \end{DoxyCompactList}\item 
+\hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info} \hyperlink{user_8h_a0652604e44feaeee6f480bafb1b073ef}{init\+User\+Info} (char $\ast$username, char $\ast$password)
+\begin{DoxyCompactList}\small\item\em Initial an \hyperlink{structUserInformation}{User\+Information} from username and password. \end{DoxyCompactList}\item 
+void \hyperlink{user_8h_ad20971f169f4dbe65714dcd9143e31d8}{write\+User\+Data} (\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Write an User\+Node list to file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing User structure and usage. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{user_8h_ad6d94ce273637446121c9cbd16b6077f}\label{user_8h_ad6d94ce273637446121c9cbd16b6077f}} 
+\index{user.\+h@{user.\+h}!S\+T\+R\+I\+N\+G\+\_\+\+L\+EN@{S\+T\+R\+I\+N\+G\+\_\+\+L\+EN}}
+\index{S\+T\+R\+I\+N\+G\+\_\+\+L\+EN@{S\+T\+R\+I\+N\+G\+\_\+\+L\+EN}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+R\+I\+N\+G\+\_\+\+L\+EN}{STRING\_LEN}}
+{\footnotesize\ttfamily \#define S\+T\+R\+I\+N\+G\+\_\+\+L\+EN~20}
+
+Maximum number of character 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}\label{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}} 
+\index{user.\+h@{user.\+h}!User\+Info@{User\+Info}}
+\index{User\+Info@{User\+Info}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{User\+Info}{UserInfo}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structUserInformation}{User\+Information}  \hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info}}
+
+
+
+\hyperlink{structUserInformation}{User\+Information} structure. 
+
+Structure to store user\textquotesingle{}s information \mbox{\Hypertarget{user_8h_a91a04fc4701fd437684d7d7951d1bd48}\label{user_8h_a91a04fc4701fd437684d7d7951d1bd48}} 
+\index{user.\+h@{user.\+h}!User\+Node@{User\+Node}}
+\index{User\+Node@{User\+Node}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{User\+Node}{UserNode}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structUserInfoNode}{User\+Info\+Node}  \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node}}
+
+
+
+\hyperlink{structUserInfoNode}{User\+Info\+Node} structure. 
+
+Structure to store user\textquotesingle{}s information as linked list 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8h_a9a87afcb60349442a13a32e254082484}\label{user_8h_a9a87afcb60349442a13a32e254082484}} 
+\index{user.\+h@{user.\+h}!find\+User@{find\+User}}
+\index{find\+User@{find\+User}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{find\+User()}{findUser()}}
+{\footnotesize\ttfamily \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node}$\ast$ find\+User (\begin{DoxyParamCaption}\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{root,  }\item[{char $\ast$}]{username }\end{DoxyParamCaption})}
+
+
+
+Find an User from User\+Node list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User\+Node} & Root of an User\+Node list \\
+\hline
+{\em String} & Username to find\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An User\+Node on found 
+
+N\+U\+LL on not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8h_a6e3afd8b9ab9c12df077b3998940303d}\label{user_8h_a6e3afd8b9ab9c12df077b3998940303d}} 
+\index{user.\+h@{user.\+h}!free\+List@{free\+List}}
+\index{free\+List@{free\+List}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{free\+List()}{freeList()}}
+{\footnotesize\ttfamily void free\+List (\begin{DoxyParamCaption}\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Free an User\+Node list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User\+Node} & Root of an User\+Node list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{user_8h_a0652604e44feaeee6f480bafb1b073ef}\label{user_8h_a0652604e44feaeee6f480bafb1b073ef}} 
+\index{user.\+h@{user.\+h}!init\+User\+Info@{init\+User\+Info}}
+\index{init\+User\+Info@{init\+User\+Info}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{init\+User\+Info()}{initUserInfo()}}
+{\footnotesize\ttfamily \hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info} init\+User\+Info (\begin{DoxyParamCaption}\item[{char $\ast$}]{username,  }\item[{char $\ast$}]{password }\end{DoxyParamCaption})}
+
+
+
+Initial an \hyperlink{structUserInformation}{User\+Information} from username and password. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & username \\
+\hline
+{\em String} & password\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new User\+Info 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8h_a03bc62cc6e98ee9a5bba1aeaf4101a46}\label{user_8h_a03bc62cc6e98ee9a5bba1aeaf4101a46}} 
+\index{user.\+h@{user.\+h}!insert\+Node@{insert\+Node}}
+\index{insert\+Node@{insert\+Node}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{insert\+Node()}{insertNode()}}
+{\footnotesize\ttfamily \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node}$\ast$ insert\+Node (\begin{DoxyParamCaption}\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{root,  }\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+Insert a node to User\+Node list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User\+Node} & Root of an User\+Node list \\
+\hline
+{\em User\+Node} & Node to insert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Root of an User\+Node list with inserted node 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8h_a6392a3969dd792c6125df382e55e9042}\label{user_8h_a6392a3969dd792c6125df382e55e9042}} 
+\index{user.\+h@{user.\+h}!make\+New\+Node@{make\+New\+Node}}
+\index{make\+New\+Node@{make\+New\+Node}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{make\+New\+Node()}{makeNewNode()}}
+{\footnotesize\ttfamily \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node}$\ast$ make\+New\+Node (\begin{DoxyParamCaption}\item[{\hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info}}]{data }\end{DoxyParamCaption})}
+
+
+
+Create new User\+Node with User\+Info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User\+Info} & Data for User\+Node\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A node created with provided data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8h_a0a3b9176866c50061f6725bd2027190f}\label{user_8h_a0a3b9176866c50061f6725bd2027190f}} 
+\index{user.\+h@{user.\+h}!print\+List@{print\+List}}
+\index{print\+List@{print\+List}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{print\+List()}{printList()}}
+{\footnotesize\ttfamily void print\+List (\begin{DoxyParamCaption}\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Print an User\+Node list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User\+Node} & Root of an User\+Node list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{user_8h_a2df17062ca7ba05bbb0922114f805308}\label{user_8h_a2df17062ca7ba05bbb0922114f805308}} 
+\index{user.\+h@{user.\+h}!sort\+Userlist@{sort\+Userlist}}
+\index{sort\+Userlist@{sort\+Userlist}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{sort\+Userlist()}{sortUserlist()}}
+{\footnotesize\ttfamily \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node}$\ast$ sort\+Userlist (\begin{DoxyParamCaption}\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Sort a node to User\+Node list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User\+Node} & Root of an User\+Node list\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Root of an User\+Node list with sorted node 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8h_ad20971f169f4dbe65714dcd9143e31d8}\label{user_8h_ad20971f169f4dbe65714dcd9143e31d8}} 
+\index{user.\+h@{user.\+h}!write\+User\+Data@{write\+User\+Data}}
+\index{write\+User\+Data@{write\+User\+Data}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{write\+User\+Data()}{writeUserData()}}
+{\footnotesize\ttfamily void write\+User\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Write an User\+Node list to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em User\+Node} & Root of an User\+Node list \\
+\hline
+\end{DoxyParams}
