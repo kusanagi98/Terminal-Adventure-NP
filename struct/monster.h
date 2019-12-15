@@ -2,7 +2,7 @@
 #define __MONSTER_H__
 
 #include "skill.h"
-#define MAX_MONSTER 2
+#define MAX_MONSTER 10
 
 typedef struct MonsterInformation
 {

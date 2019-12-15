@@ -2,7 +2,7 @@
 #define __SKILL_H__
 
 #define STRING_LEN 20
-#define SKILL_COUNT 29
+#define SKILL_COUNT 54
 
 typedef enum
 {
@@ -11,6 +11,7 @@ typedef enum
     S_WATERGUN,
     S_HEADBUTT,
     S_SLASH,
+    S_RECOVER,
     S_FLAMEWHEEL,
     S_MAGICALLEAF,
     S_WATERPULSE,
@@ -34,6 +35,30 @@ typedef enum
     ES_THRUST,
     ES_POTION,
     ES_GOBLINPUNCH,
+    ES_BITE,
+    ES_FLAMEBURST,
+    ES_FIREFANG,
+    ES_SCORCH,
+    ES_BUBBLE,
+    ES_BUBBLEBEAM,
+    ES_NATUREGRASP,
+    ES_LEECHSEED,
+    ES_INGRAIN,
+    ES_OVERGROWTH,
+    ES_CRUNCH,
+    ES_MOWDOWN,
+    ES_MAELSTROM,
+    ES_METEOR,
+    ES_BULLETSEED,
+    ES_SEEDBOMB,
+    ES_ENERGYBALL,
+    ES_NATUREWRATH,
+    ES_TENTACLEPOUND,
+    ES_WRAP,
+    ES_TSUNAMI,
+    ES_TRIATTACK,
+    ES_HELLFLAME,
+    ES_SUPERNOVA,
     S_NORMALATTACK
 } Skill;
 typedef enum
