@@ -1,14 +1,6 @@
 #include "serverfunc.h"
 #include "../helper/helper.h"
 
-/**
- * Redirect client request to right function
- * 
- * @param(int) connection file desciptor
- * @param(UserNode *) user list 
- * 
- * @return redirected function
- * */
 int handleRequest(int connfd, UserNode **root)
 {
     char buffer[BUFFER_LEN];
@@ -130,15 +122,6 @@ int login(int connfd, UserNode *root)
     return 1;
 }
 
-/**
- * Send player info to client
- * 
- * @param(int) connection file description
- * @param(UserNode) user list root
- * 
- * @return(int) 1 on success
- * @return(int) 0 on error
- * */
 int sendPlayerInfo(int connfd, UserNode *root)
 {
     int n, data;
@@ -200,15 +183,6 @@ int sendPlayerInfo(int connfd, UserNode *root)
     return 1;
 }
 
-/**
- * Send users high score to client
- * 
- * @param(int) connection file description
- * @param(UserNode) user list root
- * 
- * @return(int) 1 on success
- * @return(int) 0 on error
- * */
 int sendHighScore(int connfd, UserNode *root)
 {
     // TODO
@@ -252,18 +226,11 @@ int sendHighScore(int connfd, UserNode *root)
         return 0;
     }
 
+    printf("%s return 1\n", temp);
+
     return 1;
 }
 
-/**
- * Update user stat
- * 
- * @param(int) connection file descriptor
- * @param(UserNode *) pointer to user list
- * 
- * @return(int) 1 on success
- * @return(int) 0 on error
- * */
 int updatePlayerInfo(int connfd, UserNode **root)
 {
     int n;
@@ -296,15 +263,6 @@ int updatePlayerInfo(int connfd, UserNode **root)
     return 1;
 }
 
-/**
- * Add new user when client register
- * 
- * @param(int) connection file descriptor
- * @param(UserNode **) pointer to user list
- * 
- * @return(int) 1 on success
- * @return(int) 0 on error
- * */
 int addUser(int connfd, UserNode **root)
 {
     char buffer[BUFFER_LEN];

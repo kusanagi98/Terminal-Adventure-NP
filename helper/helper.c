@@ -1,13 +1,12 @@
 #include "helper.h"
 
 /**
- * Format highscore message send to user
- * Format: username : stage
+ * @brief Format highscore message
  * 
- * @param(string) username
- * @param(int) user current stage
+ * @param String username
+ * @param int user current stage
  * 
- * @return(string) formated string
+ * @return String with Format: "username : stage"
  * */
 char *userHighScoreFormat(char *username, int stage)
 {

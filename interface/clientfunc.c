@@ -179,6 +179,9 @@ void fetchHighScore(int connfd)
         counter++;
     }
     printf("----------------------------------------\n");
+
+    if (write(connfd, "OK", strlen("OK")) == -1)
+        die("write error", 0);
 }
 
 void updateUserInfo(int connfd, UserInfo user)

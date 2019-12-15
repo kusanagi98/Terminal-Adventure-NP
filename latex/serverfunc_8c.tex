@@ -1,0 +1,147 @@
+\hypertarget{serverfunc_8c}{}\section{interface/serverfunc.c File Reference}
+\label{serverfunc_8c}\index{interface/serverfunc.\+c@{interface/serverfunc.\+c}}
+{\ttfamily \#include \char`\"{}serverfunc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../helper/helper.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{serverfunc_8c_a666baf03791c27a3be08b84db5c8d304}{handle\+Request} (int connfd, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$$\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Redirect client request to right function. \end{DoxyCompactList}\item 
+int \hyperlink{serverfunc_8c_aaf1802058a63e11f61cfa5fe804ea3a7}{login} (int connfd, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em User login handle. \end{DoxyCompactList}\item 
+int \hyperlink{serverfunc_8c_a9280e39a2ccf7f822c3c01795f8c54aa}{send\+Player\+Info} (int connfd, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Send player info to client. \end{DoxyCompactList}\item 
+int \hyperlink{serverfunc_8c_a8de0dd7b5c2b96d6945ac9ba3097a86c}{send\+High\+Score} (int connfd, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Send users high score to client. \end{DoxyCompactList}\item 
+int \hyperlink{serverfunc_8c_a8d9e7eefca59e786c1214fac267ccc7e}{update\+Player\+Info} (int connfd, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$$\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Update user stat. \end{DoxyCompactList}\item 
+int \hyperlink{serverfunc_8c_ad035fe52627d1717f8c82f379af3ec0d}{add\+User} (int connfd, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$$\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Add new user when client register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{serverfunc_8c_ad035fe52627d1717f8c82f379af3ec0d}\label{serverfunc_8c_ad035fe52627d1717f8c82f379af3ec0d}} 
+\index{serverfunc.\+c@{serverfunc.\+c}!add\+User@{add\+User}}
+\index{add\+User@{add\+User}!serverfunc.\+c@{serverfunc.\+c}}
+\subsubsection{\texorpdfstring{add\+User()}{addUser()}}
+{\footnotesize\ttfamily int add\+User (\begin{DoxyParamCaption}\item[{int}]{connfd,  }\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$$\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Add new user when client register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file descriptor \\
+\hline
+{\em User\+Node} & pointer to user list\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 
+
+0 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{serverfunc_8c_a666baf03791c27a3be08b84db5c8d304}\label{serverfunc_8c_a666baf03791c27a3be08b84db5c8d304}} 
+\index{serverfunc.\+c@{serverfunc.\+c}!handle\+Request@{handle\+Request}}
+\index{handle\+Request@{handle\+Request}!serverfunc.\+c@{serverfunc.\+c}}
+\subsubsection{\texorpdfstring{handle\+Request()}{handleRequest()}}
+{\footnotesize\ttfamily int handle\+Request (\begin{DoxyParamCaption}\item[{int}]{connfd,  }\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$$\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Redirect client request to right function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{serverfunc_8c_aaf1802058a63e11f61cfa5fe804ea3a7}\label{serverfunc_8c_aaf1802058a63e11f61cfa5fe804ea3a7}} 
+\index{serverfunc.\+c@{serverfunc.\+c}!login@{login}}
+\index{login@{login}!serverfunc.\+c@{serverfunc.\+c}}
+\subsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily int login (\begin{DoxyParamCaption}\item[{int}]{connfd,  }\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+User login handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file description \\
+\hline
+{\em User\+Node} & user list root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 
+
+0 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{serverfunc_8c_a8de0dd7b5c2b96d6945ac9ba3097a86c}\label{serverfunc_8c_a8de0dd7b5c2b96d6945ac9ba3097a86c}} 
+\index{serverfunc.\+c@{serverfunc.\+c}!send\+High\+Score@{send\+High\+Score}}
+\index{send\+High\+Score@{send\+High\+Score}!serverfunc.\+c@{serverfunc.\+c}}
+\subsubsection{\texorpdfstring{send\+High\+Score()}{sendHighScore()}}
+{\footnotesize\ttfamily int send\+High\+Score (\begin{DoxyParamCaption}\item[{int}]{connfd,  }\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Send users high score to client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file description \\
+\hline
+{\em User\+Node} & user list root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 
+
+0 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{serverfunc_8c_a9280e39a2ccf7f822c3c01795f8c54aa}\label{serverfunc_8c_a9280e39a2ccf7f822c3c01795f8c54aa}} 
+\index{serverfunc.\+c@{serverfunc.\+c}!send\+Player\+Info@{send\+Player\+Info}}
+\index{send\+Player\+Info@{send\+Player\+Info}!serverfunc.\+c@{serverfunc.\+c}}
+\subsubsection{\texorpdfstring{send\+Player\+Info()}{sendPlayerInfo()}}
+{\footnotesize\ttfamily int send\+Player\+Info (\begin{DoxyParamCaption}\item[{int}]{connfd,  }\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Send player info to client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file description \\
+\hline
+{\em User\+Node} & user list root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 
+
+0 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{serverfunc_8c_a8d9e7eefca59e786c1214fac267ccc7e}\label{serverfunc_8c_a8d9e7eefca59e786c1214fac267ccc7e}} 
+\index{serverfunc.\+c@{serverfunc.\+c}!update\+Player\+Info@{update\+Player\+Info}}
+\index{update\+Player\+Info@{update\+Player\+Info}!serverfunc.\+c@{serverfunc.\+c}}
+\subsubsection{\texorpdfstring{update\+Player\+Info()}{updatePlayerInfo()}}
+{\footnotesize\ttfamily int update\+Player\+Info (\begin{DoxyParamCaption}\item[{int}]{connfd,  }\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$$\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Update user stat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file descriptor \\
+\hline
+{\em User\+Node$\ast$} & pointer to user list\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 
+
+0 on error 
+\end{DoxyReturn}

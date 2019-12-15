@@ -13,19 +13,30 @@
 #include <sys/time.h>
 #include <errno.h>
 
-/*
-    @param port in string
-
-    return port number if valid port or -1 if invalid
-*/
+/**
+ * @brief Get port number from argument
+ * 
+ * @param String port number
+ * 
+ * @return -1 on invalid
+ * @return port number on valid
+ * */
 int getPort(const char *port_argument);
 
-/*
-    @param message
-    @param type
-
-    exit program when error encounter or get exit message
-*/
+/**
+ * @brief Exit program when error encounter or get exit message
+ * 
+ * @param String message
+ * @param int type
+ * */
 void die(char *msg, int type);
 
+/**
+ * @brief Config an address with ip and port
+ * 
+ * @param String ip address
+ * @param int port number
+ * 
+ * @return sockaddr_in
+ * */
 struct sockaddr_in configAddress(const char *ip, int port);

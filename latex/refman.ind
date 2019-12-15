@@ -1,0 +1,551 @@
+\begin{theindex}
+
+  \item {add\+User}
+    \subitem {serverfunc.\+c}, \hyperpage{39}
+    \subitem {serverfunc.\+h}, \hyperpage{43}
+  \item {atk}
+    \subitem {Level\+Information}, \hyperpage{5}
+    \subitem {Monster\+Information}, \hyperpage{7}
+
+  \indexspace
+
+  \item {B\+LU}
+    \subitem {game.\+h}, \hyperpage{24}
+  \item {B\+U\+F\+\_\+\+S\+I\+ZE}
+    \subitem {game.\+h}, \hyperpage{24}
+  \item {B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}
+    \subitem {client.\+c}, \hyperpage{16}
+    \subitem {clientfunc.\+h}, \hyperpage{37}
+    \subitem {serverfunc.\+h}, \hyperpage{43}
+
+  \indexspace
+
+  \item {C\+YN}
+    \subitem {game.\+h}, \hyperpage{24}
+  \item {campaign}
+    \subitem {game.\+c}, \hyperpage{18}
+    \subitem {game.\+h}, \hyperpage{25}
+  \item {ch}
+    \subitem {client.\+c}, \hyperpage{16}
+  \item {client.\+c}, \hyperpage{15}
+    \subitem {B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}, \hyperpage{16}
+    \subitem {ch}, \hyperpage{16}
+    \subitem {main}, \hyperpage{16}
+    \subitem {servaddr}, \hyperpage{16}
+    \subitem {sockfd}, \hyperpage{16}
+    \subitem {temp}, \hyperpage{16}
+    \subitem {user}, \hyperpage{16}
+  \item {clientfunc.\+c}
+    \subitem {fetch\+High\+Score}, \hyperpage{34}
+    \subitem {fetch\+Player\+Data}, \hyperpage{34}
+    \subitem {login}, \hyperpage{35}
+    \subitem {play\+Menu}, \hyperpage{35}
+    \subitem {register\+Func}, \hyperpage{35}
+    \subitem {servaddr}, \hyperpage{36}
+    \subitem {update\+User\+Info}, \hyperpage{35}
+    \subitem {user}, \hyperpage{36}
+  \item {clientfunc.\+h}
+    \subitem {B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}, \hyperpage{37}
+    \subitem {fetch\+High\+Score}, \hyperpage{37}
+    \subitem {fetch\+Player\+Data}, \hyperpage{37}
+    \subitem {login}, \hyperpage{38}
+    \subitem {play\+Menu}, \hyperpage{38}
+    \subitem {register\+Func}, \hyperpage{38}
+    \subitem {update\+User\+Info}, \hyperpage{39}
+  \item {config\+Address}
+    \subitem {mysocket.\+c}, \hyperpage{31}
+    \subitem {mysocket.\+h}, \hyperpage{32}
+  \item {count}
+    \subitem {Level\+Information}, \hyperpage{5}
+  \item {cur\+Dmg}
+    \subitem {game.\+c}, \hyperpage{21}
+  \item {cur\+Exp}
+    \subitem {User\+Information}, \hyperpage{12}
+  \item {cur\+HP}
+    \subitem {User\+Information}, \hyperpage{12}
+  \item {cur\+MP}
+    \subitem {User\+Information}, \hyperpage{12}
+
+  \indexspace
+
+  \item {damage\+Calculation\+Monster}
+    \subitem {game.\+c}, \hyperpage{18}
+    \subitem {game.\+h}, \hyperpage{25}
+  \item {damage\+Calculation\+Player}
+    \subitem {game.\+c}, \hyperpage{18}
+    \subitem {game.\+h}, \hyperpage{25}
+  \item {def}
+    \subitem {Level\+Information}, \hyperpage{6}
+    \subitem {Monster\+Information}, \hyperpage{7}
+  \item {die}
+    \subitem {mysocket.\+c}, \hyperpage{31}
+    \subitem {mysocket.\+h}, \hyperpage{33}
+  \item {dmg}
+    \subitem {Skill\+Information}, \hyperpage{9}
+
+  \indexspace
+
+  \item {exp}
+    \subitem {Monster\+Information}, \hyperpage{7}
+
+  \indexspace
+
+  \item {fetch\+High\+Score}
+    \subitem {clientfunc.\+c}, \hyperpage{34}
+    \subitem {clientfunc.\+h}, \hyperpage{37}
+  \item {fetch\+Player\+Data}
+    \subitem {clientfunc.\+c}, \hyperpage{34}
+    \subitem {clientfunc.\+h}, \hyperpage{37}
+  \item {find\+User}
+    \subitem {user.\+c}, \hyperpage{57}
+    \subitem {user.\+h}, \hyperpage{63}
+  \item {free\+List}
+    \subitem {user.\+c}, \hyperpage{58}
+    \subitem {user.\+h}, \hyperpage{63}
+
+  \indexspace
+
+  \item {G\+RN}
+    \subitem {game.\+h}, \hyperpage{24}
+  \item {game.\+c}
+    \subitem {campaign}, \hyperpage{18}
+    \subitem {cur\+Dmg}, \hyperpage{21}
+    \subitem {damage\+Calculation\+Monster}, \hyperpage{18}
+    \subitem {damage\+Calculation\+Player}, \hyperpage{18}
+    \subitem {gameover\+Choice}, \hyperpage{19}
+    \subitem {levels}, \hyperpage{21}
+    \subitem {monster\+AI}, \hyperpage{19}
+    \subitem {monster\+Cur\+HP}, \hyperpage{21}
+    \subitem {monster\+Cur\+MP}, \hyperpage{21}
+    \subitem {monster\+Skill}, \hyperpage{21}
+    \subitem {monsters}, \hyperpage{21}
+    \subitem {print\+Monster\+Log}, \hyperpage{19}
+    \subitem {print\+User\+Log}, \hyperpage{20}
+    \subitem {skills}, \hyperpage{21}
+    \subitem {sockfd}, \hyperpage{21}
+    \subitem {stageover\+Choice}, \hyperpage{20}
+    \subitem {stages}, \hyperpage{22}
+    \subitem {user}, \hyperpage{22}
+    \subitem {user\+Cur\+Exp}, \hyperpage{22}
+    \subitem {user\+Cur\+HP}, \hyperpage{22}
+    \subitem {user\+Cur\+Level}, \hyperpage{22}
+    \subitem {user\+Cur\+MP}, \hyperpage{22}
+    \subitem {user\+Cur\+Stage}, \hyperpage{22}
+    \subitem {user\+Stage\+HP}, \hyperpage{22}
+    \subitem {user\+Stage\+MP}, \hyperpage{23}
+  \item {game.\+h}
+    \subitem {B\+LU}, \hyperpage{24}
+    \subitem {B\+U\+F\+\_\+\+S\+I\+ZE}, \hyperpage{24}
+    \subitem {C\+YN}, \hyperpage{24}
+    \subitem {campaign}, \hyperpage{25}
+    \subitem {damage\+Calculation\+Monster}, \hyperpage{25}
+    \subitem {damage\+Calculation\+Player}, \hyperpage{25}
+    \subitem {G\+RN}, \hyperpage{24}
+    \subitem {gameover\+Choice}, \hyperpage{26}
+    \subitem {M\+AG}, \hyperpage{24}
+    \subitem {monster\+AI}, \hyperpage{26}
+    \subitem {print\+Monster\+Log}, \hyperpage{26}
+    \subitem {print\+User\+Log}, \hyperpage{27}
+    \subitem {R\+E\+S\+ET}, \hyperpage{24}
+    \subitem {R\+ED}, \hyperpage{24}
+    \subitem {stageover\+Choice}, \hyperpage{27}
+    \subitem {W\+HT}, \hyperpage{24}
+    \subitem {Y\+EL}, \hyperpage{25}
+  \item {game/game.\+c}, \hyperpage{17}
+  \item {game/game.\+h}, \hyperpage{23}
+  \item {game/gamemaster.\+c}, \hyperpage{27}
+  \item {game/gamemaster.\+h}, \hyperpage{28}
+  \item {gamemaster.\+c}
+    \subitem {load\+User\+Info}, \hyperpage{28}
+  \item {gamemaster.\+h}
+    \subitem {load\+User\+Info}, \hyperpage{28}
+    \subitem {root}, \hyperpage{29}
+  \item {gameover\+Choice}
+    \subitem {game.\+c}, \hyperpage{19}
+    \subitem {game.\+h}, \hyperpage{26}
+  \item {get\+Port}
+    \subitem {mysocket.\+c}, \hyperpage{31}
+    \subitem {mysocket.\+h}, \hyperpage{33}
+
+  \indexspace
+
+  \item {handle\+Request}
+    \subitem {serverfunc.\+c}, \hyperpage{40}
+    \subitem {serverfunc.\+h}, \hyperpage{43}
+  \item {helper.\+c}
+    \subitem {user\+High\+Score\+Format}, \hyperpage{29}
+  \item {helper.\+h}
+    \subitem {M\+A\+X\+\_\+\+S\+T\+A\+G\+E\+\_\+\+I\+N\+\_\+\+S\+T\+R\+I\+NG}, 
+		\hyperpage{30}
+    \subitem {user\+High\+Score\+Format}, \hyperpage{30}
+  \item {helper/helper.\+c}, \hyperpage{29}
+  \item {helper/helper.\+h}, \hyperpage{29}
+  \item {helper/mysocket.\+c}, \hyperpage{30}
+  \item {helper/mysocket.\+h}, \hyperpage{32}
+  \item {hp}
+    \subitem {Level\+Information}, \hyperpage{6}
+    \subitem {Monster\+Information}, \hyperpage{7}
+
+  \indexspace
+
+  \item {init\+User\+Info}
+    \subitem {user.\+c}, \hyperpage{58}
+    \subitem {user.\+h}, \hyperpage{63}
+  \item {insert\+Node}
+    \subitem {user.\+c}, \hyperpage{58}
+    \subitem {user.\+h}, \hyperpage{64}
+  \item {interface/clientfunc.\+c}, \hyperpage{33}
+  \item {interface/clientfunc.\+h}, \hyperpage{36}
+  \item {interface/serverfunc.\+c}, \hyperpage{39}
+  \item {interface/serverfunc.\+h}, \hyperpage{42}
+
+  \indexspace
+
+  \item {level}
+    \subitem {Level\+Information}, \hyperpage{6}
+    \subitem {User\+Information}, \hyperpage{12}
+  \item {level.\+c}
+    \subitem {levels}, \hyperpage{47}
+    \subitem {load\+Level\+Info}, \hyperpage{47}
+    \subitem {skills}, \hyperpage{47}
+  \item {level.\+h}
+    \subitem {Level\+Info}, \hyperpage{48}
+    \subitem {load\+Level\+Info}, \hyperpage{48}
+    \subitem {M\+A\+X\+\_\+\+L\+E\+V\+EL}, \hyperpage{48}
+  \item {Level\+Info}
+    \subitem {level.\+h}, \hyperpage{48}
+  \item {Level\+Information}, \hyperpage{5}
+    \subitem {atk}, \hyperpage{5}
+    \subitem {count}, \hyperpage{5}
+    \subitem {def}, \hyperpage{6}
+    \subitem {hp}, \hyperpage{6}
+    \subitem {level}, \hyperpage{6}
+    \subitem {maxexp}, \hyperpage{6}
+    \subitem {mp}, \hyperpage{6}
+    \subitem {skills}, \hyperpage{6}
+  \item {levels}
+    \subitem {game.\+c}, \hyperpage{21}
+    \subitem {level.\+c}, \hyperpage{47}
+  \item {load\+Level\+Info}
+    \subitem {level.\+c}, \hyperpage{47}
+    \subitem {level.\+h}, \hyperpage{48}
+  \item {load\+Monster\+Info}
+    \subitem {monster.\+c}, \hyperpage{49}
+    \subitem {monster.\+h}, \hyperpage{51}
+  \item {load\+Stage\+Info}
+    \subitem {stage.\+c}, \hyperpage{55}
+    \subitem {stage.\+h}, \hyperpage{57}
+  \item {load\+User\+Info}
+    \subitem {gamemaster.\+c}, \hyperpage{28}
+    \subitem {gamemaster.\+h}, \hyperpage{28}
+  \item {loggedin}
+    \subitem {User\+Info\+Node}, \hyperpage{11}
+  \item {login}
+    \subitem {clientfunc.\+c}, \hyperpage{35}
+    \subitem {clientfunc.\+h}, \hyperpage{38}
+    \subitem {serverfunc.\+c}, \hyperpage{40}
+    \subitem {serverfunc.\+h}, \hyperpage{44}
+
+  \indexspace
+
+  \item {M\+A\+X\+\_\+\+C\+L\+I\+E\+NT}
+    \subitem {server.\+c}, \hyperpage{46}
+  \item {M\+A\+X\+\_\+\+L\+E\+V\+EL}
+    \subitem {level.\+h}, \hyperpage{48}
+  \item {M\+A\+X\+\_\+\+M\+O\+N\+S\+T\+ER}
+    \subitem {monster.\+h}, \hyperpage{50}
+  \item {M\+A\+X\+\_\+\+S\+T\+A\+G\+E\+\_\+\+I\+N\+\_\+\+S\+T\+R\+I\+NG}
+    \subitem {helper.\+h}, \hyperpage{30}
+  \item {M\+A\+X\+\_\+\+S\+T\+A\+GE}
+    \subitem {stage.\+h}, \hyperpage{56}
+  \item {M\+AG}
+    \subitem {game.\+h}, \hyperpage{24}
+  \item {main}
+    \subitem {client.\+c}, \hyperpage{16}
+    \subitem {server.\+c}, \hyperpage{46}
+  \item {make\+New\+Node}
+    \subitem {user.\+c}, \hyperpage{60}
+    \subitem {user.\+h}, \hyperpage{64}
+  \item {maxexp}
+    \subitem {Level\+Information}, \hyperpage{6}
+  \item {monster.\+c}
+    \subitem {load\+Monster\+Info}, \hyperpage{49}
+    \subitem {monsters}, \hyperpage{49}
+    \subitem {skills}, \hyperpage{49}
+  \item {monster.\+h}
+    \subitem {load\+Monster\+Info}, \hyperpage{51}
+    \subitem {M\+A\+X\+\_\+\+M\+O\+N\+S\+T\+ER}, \hyperpage{50}
+    \subitem {Monster\+Info}, \hyperpage{50}
+  \item {monster\+AI}
+    \subitem {game.\+c}, \hyperpage{19}
+    \subitem {game.\+h}, \hyperpage{26}
+  \item {monster\+Cur\+HP}
+    \subitem {game.\+c}, \hyperpage{21}
+  \item {monster\+Cur\+MP}
+    \subitem {game.\+c}, \hyperpage{21}
+  \item {Monster\+Info}
+    \subitem {monster.\+h}, \hyperpage{50}
+  \item {Monster\+Information}, \hyperpage{7}
+    \subitem {atk}, \hyperpage{7}
+    \subitem {def}, \hyperpage{7}
+    \subitem {exp}, \hyperpage{7}
+    \subitem {hp}, \hyperpage{7}
+    \subitem {mp}, \hyperpage{8}
+    \subitem {name}, \hyperpage{8}
+    \subitem {skills}, \hyperpage{8}
+    \subitem {type}, \hyperpage{8}
+  \item {monster\+Skill}
+    \subitem {game.\+c}, \hyperpage{21}
+  \item {monsters}
+    \subitem {game.\+c}, \hyperpage{21}
+    \subitem {monster.\+c}, \hyperpage{49}
+    \subitem {stage.\+c}, \hyperpage{55}
+    \subitem {Stage\+Information}, \hyperpage{10}
+  \item {mp}
+    \subitem {Level\+Information}, \hyperpage{6}
+    \subitem {Monster\+Information}, \hyperpage{8}
+  \item {mpcost}
+    \subitem {Skill\+Information}, \hyperpage{9}
+  \item {mysocket.\+c}
+    \subitem {config\+Address}, \hyperpage{31}
+    \subitem {die}, \hyperpage{31}
+    \subitem {get\+Port}, \hyperpage{31}
+  \item {mysocket.\+h}
+    \subitem {config\+Address}, \hyperpage{32}
+    \subitem {die}, \hyperpage{33}
+    \subitem {get\+Port}, \hyperpage{33}
+
+  \indexspace
+
+  \item {name}
+    \subitem {Monster\+Information}, \hyperpage{8}
+    \subitem {Skill\+Information}, \hyperpage{9}
+  \item {next}
+    \subitem {User\+Info\+Node}, \hyperpage{11}
+  \item {number}
+    \subitem {Stage\+Information}, \hyperpage{10}
+
+  \indexspace
+
+  \item {password}
+    \subitem {User\+Information}, \hyperpage{12}
+  \item {play\+Menu}
+    \subitem {clientfunc.\+c}, \hyperpage{35}
+    \subitem {clientfunc.\+h}, \hyperpage{38}
+  \item {print\+List}
+    \subitem {user.\+c}, \hyperpage{60}
+    \subitem {user.\+h}, \hyperpage{65}
+  \item {print\+Monster\+Log}
+    \subitem {game.\+c}, \hyperpage{19}
+    \subitem {game.\+h}, \hyperpage{26}
+  \item {print\+User\+Log}
+    \subitem {game.\+c}, \hyperpage{20}
+    \subitem {game.\+h}, \hyperpage{27}
+
+  \indexspace
+
+  \item {R\+E\+S\+ET}
+    \subitem {game.\+h}, \hyperpage{24}
+  \item {R\+ED}
+    \subitem {game.\+h}, \hyperpage{24}
+  \item {register\+Func}
+    \subitem {clientfunc.\+c}, \hyperpage{35}
+    \subitem {clientfunc.\+h}, \hyperpage{38}
+  \item {root}
+    \subitem {gamemaster.\+h}, \hyperpage{29}
+    \subitem {server.\+c}, \hyperpage{46}
+
+  \indexspace
+
+  \item {S\+K\+I\+L\+L\+\_\+\+C\+O\+U\+NT}
+    \subitem {skill.\+h}, \hyperpage{53}
+  \item {S\+T\+R\+I\+N\+G\+\_\+\+L\+EN}
+    \subitem {skill.\+h}, \hyperpage{53}
+    \subitem {user.\+h}, \hyperpage{62}
+  \item {send\+High\+Score}
+    \subitem {serverfunc.\+c}, \hyperpage{40}
+    \subitem {serverfunc.\+h}, \hyperpage{44}
+  \item {send\+Player\+Info}
+    \subitem {serverfunc.\+c}, \hyperpage{41}
+    \subitem {serverfunc.\+h}, \hyperpage{44}
+  \item {servaddr}
+    \subitem {client.\+c}, \hyperpage{16}
+    \subitem {clientfunc.\+c}, \hyperpage{36}
+  \item {server.\+c}, \hyperpage{45}
+    \subitem {M\+A\+X\+\_\+\+C\+L\+I\+E\+NT}, \hyperpage{46}
+    \subitem {main}, \hyperpage{46}
+    \subitem {root}, \hyperpage{46}
+  \item {serverfunc.\+c}
+    \subitem {add\+User}, \hyperpage{39}
+    \subitem {handle\+Request}, \hyperpage{40}
+    \subitem {login}, \hyperpage{40}
+    \subitem {send\+High\+Score}, \hyperpage{40}
+    \subitem {send\+Player\+Info}, \hyperpage{41}
+    \subitem {update\+Player\+Info}, \hyperpage{41}
+  \item {serverfunc.\+h}
+    \subitem {add\+User}, \hyperpage{43}
+    \subitem {B\+U\+F\+F\+E\+R\+\_\+\+L\+EN}, \hyperpage{43}
+    \subitem {handle\+Request}, \hyperpage{43}
+    \subitem {login}, \hyperpage{44}
+    \subitem {send\+High\+Score}, \hyperpage{44}
+    \subitem {send\+Player\+Info}, \hyperpage{44}
+    \subitem {update\+Player\+Info}, \hyperpage{45}
+  \item {Skill}
+    \subitem {skill.\+h}, \hyperpage{53}
+  \item {skill.\+c}
+    \subitem {skills}, \hyperpage{51}
+  \item {skill.\+h}
+    \subitem {S\+K\+I\+L\+L\+\_\+\+C\+O\+U\+NT}, \hyperpage{53}
+    \subitem {S\+T\+R\+I\+N\+G\+\_\+\+L\+EN}, \hyperpage{53}
+    \subitem {Skill}, \hyperpage{53}
+    \subitem {Skill\+Info}, \hyperpage{53}
+    \subitem {Type}, \hyperpage{54}
+  \item {Skill\+Info}
+    \subitem {skill.\+h}, \hyperpage{53}
+  \item {Skill\+Information}, \hyperpage{8}
+    \subitem {dmg}, \hyperpage{9}
+    \subitem {mpcost}, \hyperpage{9}
+    \subitem {name}, \hyperpage{9}
+    \subitem {skilltype}, \hyperpage{9}
+    \subitem {type}, \hyperpage{9}
+  \item {skills}
+    \subitem {game.\+c}, \hyperpage{21}
+    \subitem {level.\+c}, \hyperpage{47}
+    \subitem {Level\+Information}, \hyperpage{6}
+    \subitem {monster.\+c}, \hyperpage{49}
+    \subitem {Monster\+Information}, \hyperpage{8}
+    \subitem {skill.\+c}, \hyperpage{51}
+  \item {skilltype}
+    \subitem {Skill\+Information}, \hyperpage{9}
+  \item {sockfd}
+    \subitem {client.\+c}, \hyperpage{16}
+    \subitem {game.\+c}, \hyperpage{21}
+  \item {sort\+Userlist}
+    \subitem {user.\+c}, \hyperpage{60}
+    \subitem {user.\+h}, \hyperpage{65}
+  \item {stage}
+    \subitem {User\+Information}, \hyperpage{13}
+  \item {stage.\+c}
+    \subitem {load\+Stage\+Info}, \hyperpage{55}
+    \subitem {monsters}, \hyperpage{55}
+    \subitem {stages}, \hyperpage{55}
+  \item {stage.\+h}
+    \subitem {load\+Stage\+Info}, \hyperpage{57}
+    \subitem {M\+A\+X\+\_\+\+S\+T\+A\+GE}, \hyperpage{56}
+    \subitem {Stage\+Info}, \hyperpage{56}
+  \item {Stage\+Info}
+    \subitem {stage.\+h}, \hyperpage{56}
+  \item {Stage\+Information}, \hyperpage{10}
+    \subitem {monsters}, \hyperpage{10}
+    \subitem {number}, \hyperpage{10}
+  \item {stageover\+Choice}
+    \subitem {game.\+c}, \hyperpage{20}
+    \subitem {game.\+h}, \hyperpage{27}
+  \item {stages}
+    \subitem {game.\+c}, \hyperpage{22}
+    \subitem {stage.\+c}, \hyperpage{55}
+  \item {struct/level.\+c}, \hyperpage{46}
+  \item {struct/level.\+h}, \hyperpage{47}
+  \item {struct/monster.\+c}, \hyperpage{49}
+  \item {struct/monster.\+h}, \hyperpage{50}
+  \item {struct/skill.\+c}, \hyperpage{51}
+  \item {struct/skill.\+h}, \hyperpage{52}
+  \item {struct/stage.\+c}, \hyperpage{55}
+  \item {struct/stage.\+h}, \hyperpage{56}
+  \item {struct/user.\+c}, \hyperpage{57}
+  \item {struct/user.\+h}, \hyperpage{61}
+
+  \indexspace
+
+  \item {temp}
+    \subitem {client.\+c}, \hyperpage{16}
+  \item {Type}
+    \subitem {skill.\+h}, \hyperpage{54}
+  \item {type}
+    \subitem {Monster\+Information}, \hyperpage{8}
+    \subitem {Skill\+Information}, \hyperpage{9}
+
+  \indexspace
+
+  \item {update\+Player\+Info}
+    \subitem {serverfunc.\+c}, \hyperpage{41}
+    \subitem {serverfunc.\+h}, \hyperpage{45}
+  \item {update\+User\+Info}
+    \subitem {clientfunc.\+c}, \hyperpage{35}
+    \subitem {clientfunc.\+h}, \hyperpage{39}
+  \item {user}
+    \subitem {client.\+c}, \hyperpage{16}
+    \subitem {clientfunc.\+c}, \hyperpage{36}
+    \subitem {game.\+c}, \hyperpage{22}
+    \subitem {User\+Info\+Node}, \hyperpage{11}
+  \item {user.\+c}
+    \subitem {find\+User}, \hyperpage{57}
+    \subitem {free\+List}, \hyperpage{58}
+    \subitem {init\+User\+Info}, \hyperpage{58}
+    \subitem {insert\+Node}, \hyperpage{58}
+    \subitem {make\+New\+Node}, \hyperpage{60}
+    \subitem {print\+List}, \hyperpage{60}
+    \subitem {sort\+Userlist}, \hyperpage{60}
+    \subitem {write\+User\+Data}, \hyperpage{61}
+  \item {user.\+h}
+    \subitem {find\+User}, \hyperpage{63}
+    \subitem {free\+List}, \hyperpage{63}
+    \subitem {init\+User\+Info}, \hyperpage{63}
+    \subitem {insert\+Node}, \hyperpage{64}
+    \subitem {make\+New\+Node}, \hyperpage{64}
+    \subitem {print\+List}, \hyperpage{65}
+    \subitem {S\+T\+R\+I\+N\+G\+\_\+\+L\+EN}, \hyperpage{62}
+    \subitem {sort\+Userlist}, \hyperpage{65}
+    \subitem {User\+Info}, \hyperpage{62}
+    \subitem {User\+Node}, \hyperpage{62}
+    \subitem {write\+User\+Data}, \hyperpage{65}
+  \item {user\+Cur\+Exp}
+    \subitem {game.\+c}, \hyperpage{22}
+  \item {user\+Cur\+HP}
+    \subitem {game.\+c}, \hyperpage{22}
+  \item {user\+Cur\+Level}
+    \subitem {game.\+c}, \hyperpage{22}
+  \item {user\+Cur\+MP}
+    \subitem {game.\+c}, \hyperpage{22}
+  \item {user\+Cur\+Stage}
+    \subitem {game.\+c}, \hyperpage{22}
+  \item {user\+High\+Score\+Format}
+    \subitem {helper.\+c}, \hyperpage{29}
+    \subitem {helper.\+h}, \hyperpage{30}
+  \item {User\+Info}
+    \subitem {user.\+h}, \hyperpage{62}
+  \item {User\+Info\+Node}, \hyperpage{10}
+    \subitem {loggedin}, \hyperpage{11}
+    \subitem {next}, \hyperpage{11}
+    \subitem {user}, \hyperpage{11}
+  \item {User\+Information}, \hyperpage{11}
+    \subitem {cur\+Exp}, \hyperpage{12}
+    \subitem {cur\+HP}, \hyperpage{12}
+    \subitem {cur\+MP}, \hyperpage{12}
+    \subitem {level}, \hyperpage{12}
+    \subitem {password}, \hyperpage{12}
+    \subitem {stage}, \hyperpage{13}
+    \subitem {username}, \hyperpage{13}
+  \item {User\+Node}
+    \subitem {user.\+h}, \hyperpage{62}
+  \item {user\+Stage\+HP}
+    \subitem {game.\+c}, \hyperpage{22}
+  \item {user\+Stage\+MP}
+    \subitem {game.\+c}, \hyperpage{23}
+  \item {username}
+    \subitem {User\+Information}, \hyperpage{13}
+
+  \indexspace
+
+  \item {W\+HT}
+    \subitem {game.\+h}, \hyperpage{24}
+  \item {write\+User\+Data}
+    \subitem {user.\+c}, \hyperpage{61}
+    \subitem {user.\+h}, \hyperpage{65}
+
+  \indexspace
+
+  \item {Y\+EL}
+    \subitem {game.\+h}, \hyperpage{25}
+
+\end{theindex}

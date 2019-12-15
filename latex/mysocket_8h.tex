@@ -1,0 +1,85 @@
+\hypertarget{mysocket_8h}{}\section{helper/mysocket.h File Reference}
+\label{mysocket_8h}\index{helper/mysocket.\+h@{helper/mysocket.\+h}}
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$sys/select.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mysocket_8h_a30633a4f69ae0418f635974a282ca63a}{get\+Port} (const char $\ast$port\+\_\+argument)
+\begin{DoxyCompactList}\small\item\em Get port number from argument. \end{DoxyCompactList}\item 
+void \hyperlink{mysocket_8h_a30d421350f5aaa86dae43894198e7fc6}{die} (char $\ast$msg, int type)
+\begin{DoxyCompactList}\small\item\em Exit program when error encounter or get exit message. \end{DoxyCompactList}\item 
+struct sockaddr\+\_\+in \hyperlink{mysocket_8h_a657f0dd2f1dd412997c55faeb700d68c}{config\+Address} (const char $\ast$ip, int port)
+\begin{DoxyCompactList}\small\item\em Config an address with ip and port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{mysocket_8h_a657f0dd2f1dd412997c55faeb700d68c}\label{mysocket_8h_a657f0dd2f1dd412997c55faeb700d68c}} 
+\index{mysocket.\+h@{mysocket.\+h}!config\+Address@{config\+Address}}
+\index{config\+Address@{config\+Address}!mysocket.\+h@{mysocket.\+h}}
+\subsubsection{\texorpdfstring{config\+Address()}{configAddress()}}
+{\footnotesize\ttfamily struct sockaddr\+\_\+in config\+Address (\begin{DoxyParamCaption}\item[{const char $\ast$}]{ip,  }\item[{int}]{port }\end{DoxyParamCaption})}
+
+
+
+Config an address with ip and port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & ip address \\
+\hline
+{\em int} & port number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sockaddr\+\_\+in 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mysocket_8h_a30d421350f5aaa86dae43894198e7fc6}\label{mysocket_8h_a30d421350f5aaa86dae43894198e7fc6}} 
+\index{mysocket.\+h@{mysocket.\+h}!die@{die}}
+\index{die@{die}!mysocket.\+h@{mysocket.\+h}}
+\subsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void die (\begin{DoxyParamCaption}\item[{char $\ast$}]{msg,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+
+
+Exit program when error encounter or get exit message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & message \\
+\hline
+{\em int} & type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mysocket_8h_a30633a4f69ae0418f635974a282ca63a}\label{mysocket_8h_a30633a4f69ae0418f635974a282ca63a}} 
+\index{mysocket.\+h@{mysocket.\+h}!get\+Port@{get\+Port}}
+\index{get\+Port@{get\+Port}!mysocket.\+h@{mysocket.\+h}}
+\subsubsection{\texorpdfstring{get\+Port()}{getPort()}}
+{\footnotesize\ttfamily int get\+Port (\begin{DoxyParamCaption}\item[{const char $\ast$}]{port\+\_\+argument }\end{DoxyParamCaption})}
+
+
+
+Get port number from argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & port number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 on invalid 
+
+port number on valid 
+\end{DoxyReturn}
