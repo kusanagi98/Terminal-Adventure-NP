@@ -2,7 +2,7 @@
 #define __LEVEL_H__
 
 #include "skill.h"
-#define MAX_LEVEL 5
+#define MAX_LEVEL 20
 
 typedef struct LevelInformation
 {

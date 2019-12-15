@@ -2,7 +2,7 @@
 #define __STAGE_H__
 
 #include "monster.h"
-#define MAX_STAGE 2
+#define MAX_STAGE 7
 
 typedef struct StageInformation
 {
