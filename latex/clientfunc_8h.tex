@@ -35,7 +35,9 @@ void \hyperlink{clientfunc_8h_adac206c9b554f92f7383942c733797e5}{play\+Menu} (in
 void \hyperlink{clientfunc_8h_a7c902368f3e16b32456ba2d080a47c1c}{update\+User\+Info} (int connfd, \hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info} \hyperlink{clientfunc_8c_a56b4cf2a5c02838f61ce6eafe6b65f30}{user})
 \begin{DoxyCompactList}\small\item\em Request for update user current status. \end{DoxyCompactList}\item 
 void \hyperlink{clientfunc_8h_aed93b9dd63aac794b6d33e1549f2aad4}{fetch\+High\+Score} (int connfd)
-\begin{DoxyCompactList}\small\item\em Get highscore list from server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get highscore list from server. \end{DoxyCompactList}\item 
+void \hyperlink{clientfunc_8h_a221e177b16d52b6c97192e64943d45de}{logout} (int connfd)
+\begin{DoxyCompactList}\small\item\em Inform logout to server. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}
@@ -91,6 +93,21 @@ Fill login form and send to server.
 
 \begin{DoxyParams}{Parameters}
 {\em int} & connection file desciptor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{clientfunc_8h_a221e177b16d52b6c97192e64943d45de}\label{clientfunc_8h_a221e177b16d52b6c97192e64943d45de}} 
+\index{clientfunc.\+h@{clientfunc.\+h}!logout@{logout}}
+\index{logout@{logout}!clientfunc.\+h@{clientfunc.\+h}}
+\subsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily void logout (\begin{DoxyParamCaption}\item[{int}]{connfd }\end{DoxyParamCaption})}
+
+
+
+Inform logout to server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file descriptor \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{clientfunc_8h_adac206c9b554f92f7383942c733797e5}\label{clientfunc_8h_adac206c9b554f92f7383942c733797e5}} 

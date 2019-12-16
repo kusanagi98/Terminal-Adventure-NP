@@ -21,6 +21,7 @@
 //SkillInfo monsterSkill;
 char ch;   //options
 char temp; //temp for consuming \n
+int loginStatus = 0;
 //UserInfo tmp;          //temp for storing info from input file
 UserInfo user; //store UserInfo
 struct sockaddr_in servaddr;
@@ -105,6 +106,9 @@ int main(int argc, char const *argv[])
         }
         else if(ch=='3') {
           fetchHighScore(sockfd);
+        }
+        else if(ch=='4') {
+            logout(sockfd);
         }
         // else if(ch=='3') {
         //   searchUser(root);

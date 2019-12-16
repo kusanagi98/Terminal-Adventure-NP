@@ -78,12 +78,23 @@ int updatePlayerInfo(int connfd, UserNode **root);
 /**
  * @brief Send users high score to client
  * 
- * @param int connection file description
+ * @param int connection file descriptor
  * @param UserNode user list root
  * 
  * @return 1 on success
  * @return 0 on error
  * */
 int sendHighScore(int connfd, UserNode *root);
+
+/**
+ * @brief Update user login status
+ * 
+ * @param int connection file descriptor
+ * @param UserNode user list root
+ * 
+ * @return 1 on success
+ * @return 0 on error 
+ * */
+int userLogout(int connfd, UserNode **root);
 
 #endif

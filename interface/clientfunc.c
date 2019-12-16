@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 extern UserInfo user;
+extern int loginStatus;
 extern struct sockaddr_in servaddr;
 
 void login(int connfd)
@@ -58,6 +59,7 @@ void login(int connfd)
     }
 
     printf("%s\n", buffer);
+    loginStatus = 1;
     strcpy(user.username, username);
 }
 
@@ -158,15 +160,15 @@ void fetchHighScore(int connfd)
 
     printf("\n----------------------------------------\n");
     printf(RED "HIGH SCORE\n" RESET);
-    while(1)
+    while (1)
     {
         bzero(buffer, BUFFER_LEN);
         if ((n = read(connfd, buffer, BUFFER_LEN) == -1))
             die("read error", 0);
-        
-        if(strcmp(buffer, "END") == 0)
+
+        if (strcmp(buffer, "END") == 0)
             break;
-        if(counter == 1)
+        if (counter == 1)
             printf(RED "%d. %s\n" RESET, counter, buffer);
         else if (counter == 2 || counter == 3)
             printf(YEL "%d. %s\n" RESET, counter, buffer);
@@ -175,7 +177,7 @@ void fetchHighScore(int connfd)
 
         if (write(connfd, "OK", strlen("OK")) == -1)
             die("write error", 0);
-        
+
         counter++;
     }
     printf("----------------------------------------\n");
@@ -249,9 +251,45 @@ void playMenu(int connfd)
             fetchPlayerData(connfd);
             campaign();
         }
-        if (choice == '2')
+        else if (choice == 2)
         {
             break;
         }
+        else
+        {
+            printf("Invalid choice. Please try again\n");
+            continue;
+        }
+    }
+}
+
+void logout(int connfd)
+{
+    char buffer[BUFFER_LEN];
+    if(loginStatus == 0)
+    {
+        printf("Cannot logout now. Please login first\n");
+        return;
+    }
+
+    if (write(connfd, "Logout", strlen("Logout")) == -1)
+        die("write error", 0);
+
+    if (read(connfd, buffer, BUFFER_LEN) == -1)
+        die("write error", 0);
+
+    bzero(buffer, BUFFER_LEN);
+
+    /* inform username */
+    if (write(connfd, user.username, strlen(user.username)) == -1)
+        die("write error", 0);
+
+    if (read(connfd, buffer, BUFFER_LEN) == -1)
+        die("write error", 0);
+
+    printf("%s\n", buffer);
+    if(strcmp(buffer, "Logged out") == 0)
+    {
+        loginStatus = 0;
     }
 }
