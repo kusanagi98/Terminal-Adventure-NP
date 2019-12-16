@@ -36,9 +36,13 @@ int handleRequest(int connfd, UserNode **root)
     {
         return updatePlayerInfo(connfd, root);
     }
-    else if(strcmp(buffer, "Fetch high score") == 0)
+    else if (strcmp(buffer, "Fetch high score") == 0)
     {
         return sendHighScore(connfd, *root);
+    }
+    else if (strcmp(buffer, "Logout") == 0)
+    {
+        return userLogout(connfd, root);
     }
     else
     {
@@ -85,7 +89,8 @@ int login(int connfd, UserNode *root)
     }
     else if (strcmp(user->user.password, password) == 0)
     {
-        if(user->loggedin == 0) {
+        if (user->loggedin == 0)
+        {
             user->loggedin = 1;
             if ((n = write(connfd, "Logged in", strlen("Logged in"))) == -1)
             {
@@ -97,8 +102,9 @@ int login(int connfd, UserNode *root)
                 return 0;
             }
         }
-        else if(user->loggedin == 1){
-           if ((n = write(connfd, "Cant login", strlen("Cant login"))) == -1)
+        else if (user->loggedin == 1)
+        {
+            if ((n = write(connfd, "Cant login", strlen("Cant login"))) == -1)
             {
                 if (write(connfd, "die", strlen("die")) == -1)
                 {
@@ -106,7 +112,7 @@ int login(int connfd, UserNode *root)
                 }
 
                 return 0;
-            } 
+            }
         }
 
         return 1;
@@ -192,7 +198,7 @@ int sendHighScore(int connfd, UserNode *root)
 
     root = sortUserlist(root);
 
-    while(root != NULL)
+    while (root != NULL)
     {
         buffer = userHighScoreFormat(root->user.username, root->user.stage);
         printf("%s\n", buffer);
@@ -288,7 +294,7 @@ int addUser(int connfd, UserNode **root)
     printf("password: %s\n", password);
     user = findUser(*root, username);
 
-    if(user == NULL)
+    if (user == NULL)
     {
         UserInfo userInfo = initUserInfo(username, password);
         /* init user info */
@@ -301,8 +307,63 @@ int addUser(int connfd, UserNode **root)
             return 0;
         }
     }
-    else {
+    else
+    {
         if ((n = write(connfd, "User existed", strlen("User existed"))) == -1)
+        {
+            if (write(connfd, "die", strlen("die")) == -1)
+                return 0;
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+int userLogout(int connfd, UserNode **root)
+{
+    char buffer[BUFFER_LEN];
+    int n;
+    /* read info from client */
+    bzero(buffer, BUFFER_LEN);
+    if ((n = read(connfd, buffer, BUFFER_LEN)) == -1)
+    {
+        if (write(connfd, "die", strlen("die")) == -1)
+            return 0;
+
+        return 0;
+    }
+    buffer[n] = '\0';
+
+    UserNode *user = findUser(*root, buffer);
+
+    if (user)
+    {
+        if (user->loggedin == 1)
+        {
+            printf("cc\n");
+            if ((n = write(connfd, "Logged out", strlen("Logged out"))) == -1)
+            {
+                if (write(connfd, "die", strlen("die")) == -1)
+                    return 0;
+                return 0;
+            }
+            printf("cc2\n");
+            user->loggedin = 0;
+        }
+        else if (user->loggedin == 0)
+        {
+            if ((n = write(connfd, "User not logged in", strlen("User not logged in"))) == -1)
+            {
+                if (write(connfd, "die", strlen("die")) == -1)
+                    return 0;
+                return 0;
+            }
+        }
+    }
+    else
+    {
+        if ((n = write(connfd, "User not found", strlen("User not found"))) == -1)
         {
             if (write(connfd, "die", strlen("die")) == -1)
                 return 0;

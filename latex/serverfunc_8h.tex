@@ -35,7 +35,9 @@ int \hyperlink{serverfunc_8h_a9280e39a2ccf7f822c3c01795f8c54aa}{send\+Player\+In
 int \hyperlink{serverfunc_8h_a8d9e7eefca59e786c1214fac267ccc7e}{update\+Player\+Info} (int connfd, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$$\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
 \begin{DoxyCompactList}\small\item\em Update user stat. \end{DoxyCompactList}\item 
 int \hyperlink{serverfunc_8h_a8de0dd7b5c2b96d6945ac9ba3097a86c}{send\+High\+Score} (int connfd, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
-\begin{DoxyCompactList}\small\item\em Send users high score to client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Send users high score to client. \end{DoxyCompactList}\item 
+int \hyperlink{serverfunc_8h_af4eb8d379679eb83576dca12742345e3}{user\+Logout} (int connfd, \hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$$\ast$\hyperlink{server_8c_a71b14abea459aa5be138f52b5e817266}{root})
+\begin{DoxyCompactList}\small\item\em Update user login status. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}
@@ -119,7 +121,7 @@ Send users high score to client.
 
 
 \begin{DoxyParams}{Parameters}
-{\em int} & connection file description \\
+{\em int} & connection file descriptor \\
 \hline
 {\em User\+Node} & user list root\\
 \hline
@@ -166,6 +168,28 @@ Update user stat.
 {\em int} & connection file descriptor \\
 \hline
 {\em User\+Node$\ast$} & pointer to user list\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success 
+
+0 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{serverfunc_8h_af4eb8d379679eb83576dca12742345e3}\label{serverfunc_8h_af4eb8d379679eb83576dca12742345e3}} 
+\index{serverfunc.\+h@{serverfunc.\+h}!user\+Logout@{user\+Logout}}
+\index{user\+Logout@{user\+Logout}!serverfunc.\+h@{serverfunc.\+h}}
+\subsubsection{\texorpdfstring{user\+Logout()}{userLogout()}}
+{\footnotesize\ttfamily int user\+Logout (\begin{DoxyParamCaption}\item[{int}]{connfd,  }\item[{\hyperlink{user_8h_a91a04fc4701fd437684d7d7951d1bd48}{User\+Node} $\ast$$\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Update user login status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file descriptor \\
+\hline
+{\em User\+Node} & user list root\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

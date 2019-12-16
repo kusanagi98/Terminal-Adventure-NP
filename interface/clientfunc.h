@@ -63,4 +63,12 @@ void updateUserInfo(int connfd, UserInfo user);
  * */
 void fetchHighScore(int connfd);
 
+
+/**
+ * @brief Inform logout to server
+ * 
+ * @param int connection file descriptor
+ * */
+void logout(int connfd);
+
 #endif

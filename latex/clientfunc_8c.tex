@@ -18,11 +18,15 @@ void \hyperlink{clientfunc_8c_aed93b9dd63aac794b6d33e1549f2aad4}{fetch\+High\+Sc
 void \hyperlink{clientfunc_8c_a7c902368f3e16b32456ba2d080a47c1c}{update\+User\+Info} (int connfd, \hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info} \hyperlink{clientfunc_8c_a56b4cf2a5c02838f61ce6eafe6b65f30}{user})
 \begin{DoxyCompactList}\small\item\em Request for update user current status. \end{DoxyCompactList}\item 
 void \hyperlink{clientfunc_8c_adac206c9b554f92f7383942c733797e5}{play\+Menu} (int connfd)
-\begin{DoxyCompactList}\small\item\em Play menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Play menu. \end{DoxyCompactList}\item 
+void \hyperlink{clientfunc_8c_a221e177b16d52b6c97192e64943d45de}{logout} (int connfd)
+\begin{DoxyCompactList}\small\item\em Inform logout to server. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{user_8h_a50f85a8d84a82c18fb78a8aebba46bef}{User\+Info} \hyperlink{clientfunc_8c_a56b4cf2a5c02838f61ce6eafe6b65f30}{user}
+\item 
+int \hyperlink{clientfunc_8c_a3da5be10823328c8c8b1ca3f181e8679}{login\+Status}
 \item 
 struct sockaddr\+\_\+in \hyperlink{clientfunc_8c_ab5a41f06e504e29fe9e13f888df8f2b4}{servaddr}
 \end{DoxyCompactItemize}
@@ -74,6 +78,21 @@ Fill login form and send to server.
 {\em int} & connection file desciptor \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{clientfunc_8c_a221e177b16d52b6c97192e64943d45de}\label{clientfunc_8c_a221e177b16d52b6c97192e64943d45de}} 
+\index{clientfunc.\+c@{clientfunc.\+c}!logout@{logout}}
+\index{logout@{logout}!clientfunc.\+c@{clientfunc.\+c}}
+\subsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily void logout (\begin{DoxyParamCaption}\item[{int}]{connfd }\end{DoxyParamCaption})}
+
+
+
+Inform logout to server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & connection file descriptor \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{clientfunc_8c_adac206c9b554f92f7383942c733797e5}\label{clientfunc_8c_adac206c9b554f92f7383942c733797e5}} 
 \index{clientfunc.\+c@{clientfunc.\+c}!play\+Menu@{play\+Menu}}
 \index{play\+Menu@{play\+Menu}!clientfunc.\+c@{clientfunc.\+c}}
@@ -122,6 +141,12 @@ Request for update user current status.
 
 
 \subsection{Variable Documentation}
+\mbox{\Hypertarget{clientfunc_8c_a3da5be10823328c8c8b1ca3f181e8679}\label{clientfunc_8c_a3da5be10823328c8c8b1ca3f181e8679}} 
+\index{clientfunc.\+c@{clientfunc.\+c}!login\+Status@{login\+Status}}
+\index{login\+Status@{login\+Status}!clientfunc.\+c@{clientfunc.\+c}}
+\subsubsection{\texorpdfstring{login\+Status}{loginStatus}}
+{\footnotesize\ttfamily int login\+Status}
+
 \mbox{\Hypertarget{clientfunc_8c_ab5a41f06e504e29fe9e13f888df8f2b4}\label{clientfunc_8c_ab5a41f06e504e29fe9e13f888df8f2b4}} 
 \index{clientfunc.\+c@{clientfunc.\+c}!servaddr@{servaddr}}
 \index{servaddr@{servaddr}!clientfunc.\+c@{clientfunc.\+c}}
