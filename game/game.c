@@ -248,7 +248,7 @@ int damageCalculationPlayer(SkillInfo skill, LevelInfo player, MonsterInfo monst
     {
         return player.atk * skill.dmg / monster.def * 2;
     }
-    else if ((skill.type == T_FIRE && monster.type == T_WATER) || (skill.type == T_FIRE && monster.type == T_GRASS) || (skill.type == T_WATER && monster.type == T_WATER) || (skill.type == T_WATER && monster.type == T_GRASS) || (skill.type == T_GRASS && monster.type == T_GRASS) || (skill.type == T_GRASS && monster.type == T_FIRE))
+    else if ((skill.type == T_FIRE && monster.type == T_WATER) || (skill.type == T_FIRE && monster.type == T_FIRE) || (skill.type == T_WATER && monster.type == T_WATER) || (skill.type == T_WATER && monster.type == T_GRASS) || (skill.type == T_GRASS && monster.type == T_GRASS) || (skill.type == T_GRASS && monster.type == T_FIRE))
     {
         return player.atk * skill.dmg / monster.def / 2;
     }
