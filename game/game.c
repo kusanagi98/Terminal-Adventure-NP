@@ -29,7 +29,8 @@ extern int sockfd;
 void campaign()
 {
     int i, j, k, x;
-    char ch1, ch2, ch3, ch4, temp;
+    char ch1, ch3, ch4, temp;
+    char ch2[3];
     char nattack[] = "Normal Attack";
     printf("%s\n", user.username);
     printf("Game start\n");
@@ -84,12 +85,13 @@ void campaign()
                         // Skills
                         for (k = 0; k < levels[userCurLevel - 1].count; k++)
                         {
-                            printf("%d. %s\n", k + 1, levels[userCurLevel - 1].skills[k].name);
+                            printf("%d. %s %dMP\n", k + 1, levels[userCurLevel - 1].skills[k].name, levels[userCurLevel - 1].skills[k].mpcost);
                         }
                         printf("Your choice:\n");
-                        ch2 = getchar();
+                        scanf("%s", ch2);
+                        //ch2 = getchar();
                         scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
-                        x = ch2 - '0';
+                        x = atoi(ch2);
                         if (x < 1 || x > levels[userCurLevel - 1].count)
                         {
                             // Repeat the loop
@@ -111,6 +113,7 @@ void campaign()
                                         curDmg -= userCurHP - levels[userCurLevel - 1].hp;
                                         userCurHP = levels[userCurLevel - 1].hp;
                                     }
+                                    userCurMP -= levels[userCurLevel - 1].skills[x - 1].mpcost;
                                     printUserLog(user.username, levels[userCurLevel - 1].skills[x - 1].name, curDmg, levels[userCurLevel - 1].skills[x - 1].type);
                                 }
                                 else

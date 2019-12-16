@@ -1,13 +1,8 @@
 #ifndef __SKILL_H__
 #define __SKILL_H__
 
-<<<<<<< HEAD
-#define STRING_LEN 20
+#define STRING_LEN 20  /**< Maximum number of character */
 #define SKILL_COUNT 54 /**< Maximum number of skill */
-=======
-#define STRING_LEN 20 /**< Maximum number of character */
-#define SKILL_COUNT 29 /**< Maximum number of skill */
->>>>>>> add documentation and fix fetch highscore
 
 /**
  * @brief Skill enum
