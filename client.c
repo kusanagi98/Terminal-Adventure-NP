@@ -97,8 +97,10 @@ int main(int argc, char const *argv[])
         scanf("%c", &temp); //Consume a \n character. Press enter an extra time if no input
         if (ch == '1')
         {
-            login(sockfd);
-            playMenu(sockfd);
+            if(loginStatus == 0) {
+                login(sockfd);
+                playMenu(sockfd);
+            }
         }
         else if(ch == '2')
         {

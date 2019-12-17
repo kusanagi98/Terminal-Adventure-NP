@@ -3,8 +3,9 @@
 #include "interface/serverfunc.h"
 
 UserNode *root = NULL; //linked list root
-
 #define MAX_CLIENT 30
+
+char users[MAX_CLIENT + 4][STRING_LEN];
 
 int main(int argc, char const *argv[])
 {
@@ -29,6 +30,7 @@ int main(int argc, char const *argv[])
     /* client fd info */
     int client_socket[MAX_CLIENT];
     // char buffer[BUFFER_MAX_LEN];
+    UserNode *user;
 
     /* config server */
     if (argc < 2)
@@ -138,6 +140,8 @@ int main(int argc, char const *argv[])
                     {
                         /* close socket after user */
                         // printf("close fd %d\n", client_socket[i]);
+                        user = findUser(root, users[client_socket[i]]);
+                        user->loggedin = 0;
                         close(client_socket[i]);
                         client_socket[i] = 0;
                     }

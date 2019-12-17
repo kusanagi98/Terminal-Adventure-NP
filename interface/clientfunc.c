@@ -34,7 +34,7 @@ void login(int connfd)
     if (write(connfd, buffer, strlen(buffer)) == -1)
         die("write error", 0);
 
-    /* read reply from server */
+    /* re ad reply from server */
     bzero(buffer, BUFFER_LEN);
     if ((n = read(connfd, buffer, BUFFER_LEN)) == -1)
         die(buffer, 0);
