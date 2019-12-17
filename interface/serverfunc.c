@@ -1,6 +1,9 @@
 #include "serverfunc.h"
 #include "../helper/helper.h"
 
+#define MAX_CLIENT 30
+extern char users[MAX_CLIENT + 4][STRING_LEN];
+
 int handleRequest(int connfd, UserNode **root)
 {
     char buffer[BUFFER_LEN];
@@ -101,6 +104,7 @@ int login(int connfd, UserNode *root)
 
                 return 0;
             }
+            strcpy(users[connfd], username);
         }
         else if (user->loggedin == 1)
         {
@@ -191,7 +195,6 @@ int sendPlayerInfo(int connfd, UserNode *root)
 
 int sendHighScore(int connfd, UserNode *root)
 {
-    // TODO
     int n;
     char *buffer;
     char temp[BUFFER_LEN];
