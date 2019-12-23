@@ -16,7 +16,7 @@ int handleRequest(int connfd, UserNode **root)
     if ((n = read(connfd, buffer, BUFFER_LEN)) == -1)
         return 0;
     buffer[n] = '\0';
-    printf("mode: %s\n\n", buffer);
+    printf("mode: %s - %ld\n\n", buffer, strlen(buffer));
     if ((n = write(connfd, "OK", strlen("OK"))) == -1)
     {
         if (write(connfd, "die", strlen("die")) == -1)

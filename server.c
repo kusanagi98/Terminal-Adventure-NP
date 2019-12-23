@@ -9,6 +9,7 @@ char users[MAX_CLIENT + 4][STRING_LEN];
 
 int main(int argc, char const *argv[])
 {
+    bzero(users, (MAX_CLIENT + 4) * STRING_LEN);
     socklen_t clientlen;
     int port;
     /* server's addr */
@@ -140,8 +141,12 @@ int main(int argc, char const *argv[])
                     {
                         /* close socket after user */
                         // printf("close fd %d\n", client_socket[i]);
-                        user = findUser(root, users[client_socket[i]]);
-                        user->loggedin = 0;
+                        if (strlen(users[client_socket[i]]) > 0)
+                        {
+                            user = findUser(root, users[client_socket[i]]);
+                            user->loggedin = 0;
+                            bzero(users[client_socket[i]], STRING_LEN);
+                        }
                         close(client_socket[i]);
                         client_socket[i] = 0;
                     }

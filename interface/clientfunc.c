@@ -105,9 +105,7 @@ void registerFunc(int connfd)
     {
         die(buffer, 0);
     }
-
-    printf("%s\n", buffer);
-    strcpy(user.username, username);
+    else printf("%s\n", buffer);
 }
 
 void fetchPlayerData(int connfd)
